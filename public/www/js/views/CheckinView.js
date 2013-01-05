@@ -5,7 +5,8 @@ define([
   'tpl!templates/checkinView.html',
 ], function($, _, Backbone, checkinTemplate){
   var CheckinView = Backbone.Marionette.ItemView.extend({
-    template: checkinTemplate
+    template: checkinTemplate,
+    onRender: function(){}
   });
 
   return CheckinView;

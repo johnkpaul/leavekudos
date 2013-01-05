@@ -4,17 +4,17 @@ define([
   'underscore',
   'backbone',
   'views/home/HomeView',
-  'views/CheckinView',
+  'views/CheckinCollectionView',
   'collections/kudos/KudosCollection',
   'collections/CheckinCollection',
-], function($, _, Backbone, HomeView, CheckinView, KudosCollection, CheckinCollection) {
+], function($, _, Backbone, HomeView, CheckinCollectonView, KudosCollection, CheckinCollection) {
   
   var mainController = {
     loadCheckins:function(){
       var checkinCollection = new CheckinCollection();
       checkinCollection.fetch().then(function(){
-        var checkinView = new CheckinView({collection:checkinCollection});
-        require("app").mainRegion.show(checkinView);
+        var checkinCollectionView = new CheckinCollectonView({collection:checkinCollection});
+        require("app").mainRegion.show(checkinCollectionView);
       });
     },
     loadHome:function(){
