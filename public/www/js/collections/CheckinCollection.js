@@ -8,7 +8,7 @@ define([
       model: CheckinModel,
       initialize : function(models, options) {},
       url : function() {
-        return '/checkins';
+        return '/api/checkins';
       },
   });
 
