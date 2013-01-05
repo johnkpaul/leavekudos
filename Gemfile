@@ -28,4 +28,5 @@ gem 'jquery-rails'
 
 gem "rails_config"
 gem "foursquare2"
+gem "oauth2"
 
