@@ -10,7 +10,7 @@ define([
       controller: mainController,
       appRoutes: {
         "": "loadHome",
-        "test": "loadTest"
+        "checkins": "loadCheckins"
       }
     });
 

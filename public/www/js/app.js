@@ -15,6 +15,15 @@ define([
     Backbone.history.start();
   });
 
+  App.addInitializer(function(options){
+    $(document.body).on('click', 'a.js-load-route', function(e){
+      var $target = $(e.target);
+      console.log("navigating to ", $target.attr("href"));
+      e.preventDefault();
+      App.router.navigate($target.attr("href"), {trigger:true});
+    });
+  });
+
   App.addRegions({
     mainRegion: "#page"
   });
