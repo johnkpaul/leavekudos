@@ -9,7 +9,7 @@ class TwitterWrapper
       config.oauth_token_secret = Settings.twitter_api.token_secret
     end
 
-    Twitter.update("@johnkpaul debug tweet " + Time.now.strftime('%s'))
+    Twitter.update("debug tweet " + Time.now.to_f.to_s)
   end 
 
 end
