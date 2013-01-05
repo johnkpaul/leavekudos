@@ -29,11 +29,13 @@ Run the tests before you commit, please.
 ### Staging
 
     git push staging master
+    heroku run rake db:migrate --app leavekudos-staging
 
 
 ### Production
 
     git push prod master
+    heroku run rake db:migrate --app leavekudos
 
 ## API Documentation
 
