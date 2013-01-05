@@ -7,7 +7,10 @@ describe KudosController do
   let(:venue_id) { 1 }
 
   describe "GET most_recent" do
-    subject { get :most_recent }
+    subject { 
+      request.cookies['fsq_token'] = '4QMVGYYFOUBKDVPSXLS41GUUUWRCCBUJ3IIU2LFCXZVPXA0S'
+      get :most_recent 
+    }
 
     it "should return most recent kudos" do
       subject

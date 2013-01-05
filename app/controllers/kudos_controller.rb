@@ -44,7 +44,6 @@ class KudosController < ApplicationController
   private
 
   def tweet_to_venue(venue_id)
-    access_token = cookies[:fsq_token]
     fsq_client = FoursqWrapper.create_client
     venue = fsq_client.venue(venue_id)
     unless venue.contact.twitter != nil
