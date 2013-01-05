@@ -4,15 +4,21 @@ define([
   'underscore', 
   'backbone',
   'views/layouts/default',
-  'router', // Request router.js
+  'router', 
+  'views/HeaderView', 
   'marionette'
-], function($, _, Backbone, DefaultLayout, Router){
+], function($, _, Backbone, DefaultLayout, Router, HeaderView){
 
   var App = window.App = new Marionette.Application();
 
   var Router = App.router = new Router();
   App.addInitializer(function(options){
     Backbone.history.start();
+  });
+
+  App.addInitializer(function(options){
+    var headerView = new HeaderView();
+    App.headerRegion.show(headerView);
   });
 
   App.addInitializer(function(options){
@@ -25,7 +31,8 @@ define([
   });
 
   App.addRegions({
-    mainRegion: "#page"
+    mainRegion: "#page",
+    headerRegion: "#header"
   });
 
   return App;
