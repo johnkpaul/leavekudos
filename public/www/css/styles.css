@@ -166,4 +166,5 @@ p.checkins-info {
   width: 100%;
   max-width: 521px;
   height: auto;
+  cursor:pointer;
 }

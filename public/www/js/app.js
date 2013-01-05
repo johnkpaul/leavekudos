@@ -22,7 +22,7 @@ define([
   });
 
   App.addInitializer(function(options){
-    $(document.body).on('click', 'a.js-load-route', function(e){
+    $(document.body).on('click', '.js-load-route', function(e){
       var $target = $(e.target);
       console.log("navigating to ", $target.attr("href"));
       e.preventDefault();
