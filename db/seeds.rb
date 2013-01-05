@@ -8,7 +8,11 @@
 
 
 if Rails.env.development?
-  Employee.find_or_create_by_name('Ryan Juang', venue_id: 123, description: "Ryan is a guy and he wears shirts. Sometimes.")
-  Employee.find_or_create_by_name('John Paul', venue_id: 123, description: "John Paul is a really cool guy and doesn't afraid of anything")
-  Employee.find_or_create_by_name('Ben Burton', venue_id: 123, description: "Ben is a programmer and he likes things.")
+  ryan = Employee.find_or_create_by_name('Ryan Juang', venue_id: 123, description: "Ryan is a guy and he wears shirts. Sometimes.")
+  john = Employee.find_or_create_by_name('John Paul', venue_id: 123, description: "John Paul is a really cool guy and doesn't afraid of anything")
+  ben = Employee.find_or_create_by_name('Ben Burton', venue_id: 123, description: "Ben is a programmer and he likes things.")
+  Kudo.find_or_create_by_anecdote!("Great Service", foursquare_user_id: 41573486, venue_id: 123, employee: ryan)
+  Kudo.find_or_create_by_anecdote!("So helpful", foursquare_user_id: 41573486, venue_id: 123, employee: john)
+  Kudo.find_or_create_by_anecdote!("Amazing help", foursquare_user_id: 41573486, venue_id: 123, employee: john)
+  Kudo.find_or_create_by_anecdote!("Really patient", foursquare_user_id: 41573486, venue_id: 123, employee: ben)
 end
