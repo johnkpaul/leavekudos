@@ -3,7 +3,7 @@ class KudosController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def most_recent
-    render json: { kudos: Kudo.recent }
+    render json: { kudos: Kudo.recent.as_json(:include => :employee) }
   end
 
   def by_venue
@@ -15,7 +15,7 @@ class KudosController < ApplicationController
     if kudo.save
       render json: { kudo: kudo.as_json(:include => :employee) }
     else
-      render json: { error: kudo.errors.full_messages}
+      render json: { errors: kudo.errors.full_messages}, status: 400
     end
   end
 
