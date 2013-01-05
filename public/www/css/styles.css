@@ -1,2 +1,48 @@
-@import url('style.css');
-@import url('bootstrap.css'); 
+ul {
+  list-style-type: none;
+}
+
+#container {
+  background: #eef8c8;
+  margin: 0 auto;
+  width: 900px;
+}
+
+p.checkins-info {
+  font-family: 'PT Sans', sans-serif;
+  font-size: 24px;
+  text-align: center;
+  width: 250px;
+  margin: 20px auto;
+}
+
+#checkin-collection {
+  padding: 0;
+  margin: 0 auto;
+  width: 90%;
+}
+
+#checkin-collection li {
+  background: #ffffff;
+  padding: 10px;
+  border-bottom: 1px solid #dddddd;
+  border-left: 1px solid #dddddd;
+  border-right: 1px solid #dddddd;
+}
+
+#checkin-collection li:first-child {
+  border-top: 1px solid #dddddd;
+  -webkit-border-radius: 12px 12px 0 0;
+   -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+          border-radius: 12px 12px 0 0;
+}
+
+#checkin-collection li:last-child {
+  -webkit-border-radius: 0 0 12px 12px;
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+  border-radius: 0 0 12px 12px;
+}
+
+#checkin-collection li:nth-child(even) {
+  background: #f4f4f4;
+}

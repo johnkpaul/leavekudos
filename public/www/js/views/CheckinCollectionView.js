@@ -8,7 +8,9 @@ define([
   var CheckinCollectionView = Backbone.Marionette.CompositeView.extend({
     template: checkinCollectionView,
     itemView: CheckinView,
-    onRender: function(){}
+    appendHtml: function(collectionView, itemView){
+      collectionView.$("#checkin-collection").append(itemView.el);
+    }
   });
 
   return CheckinCollectionView;
