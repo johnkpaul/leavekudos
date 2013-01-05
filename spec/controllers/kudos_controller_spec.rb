@@ -26,7 +26,14 @@ describe KudosController do
   end
 
   describe "POST create" do
-    subject { post :create, kudo: {foursquare_user_id: foursquare_user_id, employee_id: employee_id, venue_id: venue_id_param } }
+    subject { post :create, kudo: kudo_parameters }
+    let(:kudo_parameters) {
+      {
+        foursquare_user_id: foursquare_user_id,
+        employee_id: employee_id,
+        venue_id: venue_id_param
+      }
+    }
     let(:employee_id) { employee.id }
     let(:foursquare_user_id) { 123 }
     let(:venue_id_param) { 1 }
@@ -58,6 +65,31 @@ describe KudosController do
         subject
         response.body.should include "Venue can't be blank"
       end
+    end
+
+    context "with a new employee" do
+      let(:kudo_parameters) {
+        {
+          foursquare_user_id: foursquare_user_id,
+          employee: employee_parameters,
+          venue_id: venue_id_param
+        }
+      }
+      let(:employee_parameters) {
+        {
+          name: "New Employee",
+          description: "The guy who always wears a hat."
+        }
+      }
+
+      it "should create a new employee" do
+        expect { subject }.to change { Employee.count }.by 1
+      end
+
+      it "should create a new kudo" do
+        expect { subject }.to change { Kudo.count }.by 1
+      end
+
     end
 
   end

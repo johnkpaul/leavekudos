@@ -11,7 +11,13 @@ class KudosController < ApplicationController
   end
 
   def create
-    kudo = Kudo.create(params[:kudo])
+    if params[:kudo][:employee]
+      params[:kudo][:employee][:venue_id] = params[:kudo][:venue_id]
+      params[:kudo][:employee_id] = Employee.create(params[:kudo][:employee]).id
+      params[:kudo].delete :employee
+    end
+
+    kudo = Kudo.new(params[:kudo])
     if kudo.save
       render json: { kudo: kudo.as_json(:include => :employee) }
     else

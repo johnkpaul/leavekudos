@@ -122,6 +122,19 @@ If your request is invalid for some reason, you'll get a 400 back with error mes
       ]
     }
 
+You can also provide an employee object in the JSON to generate a new employee object for your kudos:
+
+    {
+      "kudo": {
+        "foursquare_user_id": 123,
+        "anecdote": "Ryan was helpful.",
+        "employee": {
+          "name": "Ryan Juang",
+          "description": "Ryan is a guy and he wears shirts. Sometimes."
+        }
+      }
+    }
+
 ### Foursquare API Passthroughs
 
 The following methods pass-through to the Foursquare API:
