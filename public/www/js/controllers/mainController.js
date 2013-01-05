@@ -5,11 +5,16 @@ define([
   'backbone',
   'views/home/HomeView',
   'collections/kudos/KudosCollection',
-], function($, _, Backbone, HomeView, KudosCollection) {
+  'collections/CheckinCollection',
+], function($, _, Backbone, HomeView, KudosCollection, CheckinCollection) {
   
   var mainController = {
-    loadTest:function(){
-      alert("TEST!!!");
+    loadCheckins:function(){
+      var checkinCollection = new CheckinCollection();
+      checkinCollection.fetch().then(function(){
+        var checkinView = new HomeView({collection:checkinCollection});
+        checkinView.render();
+      });
     },
     loadHome:function(){
       var kudosCollection = new KudosCollection();
