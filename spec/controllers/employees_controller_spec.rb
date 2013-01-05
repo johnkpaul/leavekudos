@@ -3,7 +3,7 @@ require 'spec_helper'
 describe EmployeesController do
 
   let(:venue_id) { 1 }
-  let(:employee) { FactoryGirl.create(:employee, venue_id: venue_id) }
+  let!(:employee) { FactoryGirl.create(:employee, venue_id: venue_id) }
 
   describe "GET show" do
     subject { get :show, venue_id: venue_id }

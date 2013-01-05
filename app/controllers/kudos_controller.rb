@@ -5,7 +5,7 @@ class KudosController < ApplicationController
   end
 
   def most_recent
-    render json: { kudos: Kudo.new }
+    render json: { kudos: Kudo.recent }
   end
 
 end
