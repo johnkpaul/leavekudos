@@ -16,7 +16,7 @@ define([
       console.log(this.kudos.toJSON());
       console.log("submitting kudos");
       this.kudos.save().then(function(){
-      
+        require("app").router.controller.loadHome();
       });
     },
     initialize:function(){
