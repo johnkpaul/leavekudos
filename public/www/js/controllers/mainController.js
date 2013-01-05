@@ -3,14 +3,14 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'views/home/HomeView',
+  'views/KudosView',
   'views/CheckinCollectionView',
   'views/LeaveKudosView',
   'views/LastKudosView',
   'collections/kudos/KudosCollection',
   'collections/CheckinCollection',
   'collections/EmployeeCollection',
-], function($, _, Backbone, HomeView, CheckinCollectonView, SelectEmployeeView, LastKudosView, KudosCollection, 
+], function($, _, Backbone, KudosView, CheckinCollectonView, SelectEmployeeView, LastKudosView, KudosCollection, 
                  CheckinCollection, EmployeeCollection) {
   
   var mainController = {
@@ -42,8 +42,8 @@ define([
     loadHome:function(){
       var kudosCollection = new KudosCollection();
       kudosCollection.fetch().then(function(){
-        var homeView = new HomeView({collection:kudosCollection});
-        require("app").mainRegion.show(homeView);
+        var kudosView = new KudosView({collection:kudosCollection});
+        require("app").mainRegion.show(kudosView);
         require("app").headerRegion.currentView.hideBack()
       });
     }
