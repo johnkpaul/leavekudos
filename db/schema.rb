@@ -11,7 +11,13 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130105151048) do
+ActiveRecord::Schema.define(:version => 20130105154048) do
+
+  create_table "employees", :force => true do |t|
+    t.integer "venue_id"
+    t.string  "name"
+    t.text    "description"
+  end
 
   create_table "kudos", :force => true do |t|
     t.integer "foursquare_user_id"
