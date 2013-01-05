@@ -13,14 +13,12 @@ define([
     },
     inputEmployeeDescription: function(e){
       var $target = $(e.target)
-      this.kudos.set('employee_description', $target.val());
+      this.kudos.get('employee').description = $target.data('employee-description');
       this.proceed();
     },
     selectEmployee: function(e){
       var $target = $(e.target)
-      this.kudos.set('employee_id', $target.data('employee-id'));
-      this.kudos.set('employee_name', $target.data('employee-name'));
-      this.kudos.set('employee_description', $target.data('employee-description'));
+      this.kudos.get('employee').id = $target.data('employee-id');
       this.proceed();
     },
     proceed:function(){
@@ -28,7 +26,10 @@ define([
     },
     initialize:function(){
       this.kudos = new KudosModel();
-      this.kudos.set('vanue_id', this.collection.venueId);
+      var user_id = document.cookie.split(";").map(function(i){return i.split("=");}).filter(function(i){return i[0].trim() == "fsq_user_id"})[0][1];
+      this.kudos.set('venue_id', this.collection.venueId);
+      this.kudos.set('foursquare_user_id', user_id);
+      this.kudos.set('employee', {});
       this.model.set('collection', this.collection.toJSON())
     }
   });

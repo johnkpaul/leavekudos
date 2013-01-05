@@ -11,8 +11,13 @@ define([
         "click .js-submit-kudos": "submitKudos"
     },
     submitKudos:function(){
-      console.log(this.kudos);
+      var anecdote = this.$("textarea").val()
+      this.kudos.set('anecdote', anecdote);
+      console.log(this.kudos.toJSON());
       console.log("submitting kudos");
+      this.kudos.save().then(function(){
+      
+      });
     },
     initialize:function(){
       this.kudos = this.model
