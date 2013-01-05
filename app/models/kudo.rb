@@ -1,6 +1,6 @@
 class Kudo < ActiveRecord::Base
 
-  attr_accessible :foursquare_user_id, :employee, :employee_id, :venue_id, :anecdote
+  attr_accessible :foursquare_user_id, :employee, :employee_id, :venue_id, :anecdote, :created_at, :updated_at, :venue_notified
 
   attr_accessor :foursquare_username, :foursquare_avatar
   
