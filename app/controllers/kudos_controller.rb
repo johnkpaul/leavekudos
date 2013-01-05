@@ -6,7 +6,16 @@ class KudosController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def most_recent
-    render json: Kudo.recent.as_json(:include => :employee)
+    token = cookies[:fsq_token]
+    foursq_client = FoursqWrapper.create_authenticated_client token
+    # Iterate through each recent item to give a rich user
+    # object back
+    kudos = Kudo.recent
+    kudos.each do |kudo|
+      user = foursq_client.user(kudo.foursquare_user_id)
+      kudo.foursquare_username = user.firstName + " " + user.lastName
+    end
+    render json: kudos.as_json(:include => :employee, :methods => :foursquare_username)
   end
 
   def by_venue
