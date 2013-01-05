@@ -8,14 +8,19 @@ define([
   'views/LeaveKudosView',
   'collections/kudos/KudosCollection',
   'collections/CheckinCollection',
-], function($, _, Backbone, HomeView, CheckinCollectonView, LeaveKudosView, KudosCollection, CheckinCollection) {
+  'collections/EmployeeCollection',
+], function($, _, Backbone, HomeView, CheckinCollectonView, SelectEmployeeView, KudosCollection, 
+                 CheckinCollection, EmployeeCollection) {
   
   var mainController = {
 
     leaveKudosFor:function(checkinModel){
-      var leaveKudosView = new LeaveKudosView({model:checkinModel});
-      require("app").mainRegion.show(leaveKudosView);
-      require("app").headerRegion.currentView.showBack();
+      var employeesCollection = new EmployeeCollection([], {venueId:checkinModel.get('venue').id});
+      employeesCollection.fetch().then(function(){
+        var selectEmployeeView = new SelectEmployeeView({model:checkinModel});
+        require("app").mainRegion.show(selectEmployeeView);
+        require("app").headerRegion.currentView.showBack();
+      });
     },
     loadCheckins:function(){
       var checkinCollection = new CheckinCollection();
@@ -39,6 +44,7 @@ define([
       var wrapped = _.wrap(value, function(func) {
           var sliced = Array.prototype.slice.call(arguments, 1)
           mainController.lastHandler = key;
+          mainController.lastArguments = sliced;
           return func.apply(this, sliced);
         });
         return controller[key] = wrapped;

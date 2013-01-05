@@ -10,7 +10,8 @@ define([
     },
     tagName: "li",
     template: checkinTemplate,
-    selectCheckin: function(){
+    selectCheckin: function(e){
+      e.preventDefault();
       require("app").router.controller.leaveKudosFor(this.model);
     },
     onRender: function(){}
