@@ -5,11 +5,30 @@ define([
   'backbone',
   'views/home/HomeView',
   'views/CheckinCollectionView',
+  'views/LeaveKudosView',
+  'views/LastKudosView',
   'collections/kudos/KudosCollection',
   'collections/CheckinCollection',
-], function($, _, Backbone, HomeView, CheckinCollectonView, KudosCollection, CheckinCollection) {
+  'collections/EmployeeCollection',
+], function($, _, Backbone, HomeView, CheckinCollectonView, SelectEmployeeView, LastKudosView, KudosCollection, 
+                 CheckinCollection, EmployeeCollection) {
   
   var mainController = {
+
+    leaveKudosFor:function(checkinModel){
+      var employeesCollection = new EmployeeCollection([], {venueId:checkinModel.get('venue').id});
+      employeesCollection.fetch().then(function(){
+        var selectEmployeeView = new SelectEmployeeView({model:checkinModel, collection:employeesCollection});
+        require("app").mainRegion.show(selectEmployeeView);
+        require("app").headerRegion.currentView.showBack();
+      });
+    },
+
+    loadLastPage:function(kudosModel){
+      var lastKudosView = new LastKudosView({model:kudosModel});
+      require("app").mainRegion.show(lastKudosView);
+      require("app").headerRegion.currentView.showBack();
+    },
 
     loadCheckins:function(){
       var checkinCollection = new CheckinCollection();
@@ -31,8 +50,10 @@ define([
   }
   _.each(mainController, function(value, key, controller) {
       var wrapped = _.wrap(value, function(func) {
+          var sliced = Array.prototype.slice.call(arguments, 1)
           mainController.lastHandler = key;
-          return func.call(this);
+          mainController.lastArguments = sliced;
+          return func.apply(this, sliced);
         });
         return controller[key] = wrapped;
     }); 

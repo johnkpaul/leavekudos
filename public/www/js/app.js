@@ -34,9 +34,11 @@ define([
     mainRegion: "#page",
     headerRegion: "#header"
   });
-  App.vent.on('back', function(){
-    App.router.controller[App.router.controller.lastHandler].call(App.router.controller)
-  });
-  return App;
 
+  App.vent.on('back', function(){
+    var controller = App.router.controller;
+    controller[controller.lastHandler].apply(controller, controller.lastArguments)
+  });
+
+  return App;
 });
