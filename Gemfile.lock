@@ -70,6 +70,8 @@ GEM
       activesupport (= 3.2.10)
       bundler (~> 1.0)
       railties (= 3.2.10)
+    rails_config (0.3.1)
+      activesupport (>= 3.0)
     railties (3.2.10)
       actionpack (= 3.2.10)
       activesupport (= 3.2.10)
@@ -110,6 +112,7 @@ DEPENDENCIES
   json
   pg
   rails (= 3.2.10)
+  rails_config
   sass-rails (~> 3.2.3)
   sqlite3
   uglifier (>= 1.0.3)
