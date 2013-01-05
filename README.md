@@ -9,6 +9,14 @@
     rake db:migrate
     rails s
 
+## Testing
+
+Run the tests before you commit pls.
+
+    rake db:test:prepare
+    rspec spec
+
+
 ## Deploy
 
     git remote add staging git@heroku.com:leavekudos-staging.git
