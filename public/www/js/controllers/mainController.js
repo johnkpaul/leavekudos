@@ -18,6 +18,7 @@ define([
       });
     },
     loadHome:function(){
+      console.log("loading home");
       var kudosCollection = new KudosCollection();
       kudosCollection.fetch().then(function(){
         var homeView = new HomeView({collection:kudosCollection});

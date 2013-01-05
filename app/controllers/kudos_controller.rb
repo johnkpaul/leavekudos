@@ -3,7 +3,7 @@ class KudosController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def most_recent
-    render json: { kudos: Kudo.recent.as_json(:include => :employee) }
+    render json: Kudo.recent.as_json(:include => :employee)
   end
 
   def by_venue

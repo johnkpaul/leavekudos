@@ -8,7 +8,7 @@ define([
       model: KudosModel,
       initialize : function(models, options) {},
       url : function() {
-        return '/checkins';
+        return '/kudos/mostrecent';
       },
   });
 
