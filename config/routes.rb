@@ -12,6 +12,7 @@ Leavekudos::Application.routes.draw do
   end
 
   match "/venues/:venue_id" => "venues#show"
+  match "/venues" => "venues#index"
 
   # oauth endpoints
   match "/connect" => "oauth#register"

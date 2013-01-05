@@ -1,12 +1,27 @@
 <div id="container">
   <div id="header">
-    <h1><%= @venue.name %></h1>
+    <img src="/www/imgs/header-logo.png"/>
   </div>
   <div id="page">
-    <ul>
-    <% @employees.each do |employee| %>
-      <li><%= employee.name %> <%= employee.kudos.count %></li>
-    <% end %>
-  </ul>
+    <h1><%= @venue.name %></h1>
+    <p class="address"><%= @venue.location.address %>, <%= @venue.location.city %>, <%= @venue.location.state %></p>
+    <% if @employees.count > 0 %>
+      <table>
+        <tr>
+          <th>Person</th>
+          <th>Description</th>
+          <th>Kudos</th>
+        </tr>
+        <% @employees.each do |employee| %>
+          <tr>
+            <td><%= employee.name %></td>
+            <td><%= employee.description %></td>
+            <td><%= employee.kudos.count%></td>
+          </tr>
+        <% end %>
+      <% else %>
+        <p>Nobody has left any kudos at <%= @venue.name %>.</p>
+        <p>Be the first!</p>
+      <% end %>
+    </table>
   </div>
-</body>

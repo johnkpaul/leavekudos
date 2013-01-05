@@ -1,0 +1,16 @@
+<div id="container">
+  <div id="header">
+    <img src="/www/imgs/header-logo.png"/>
+  </div>
+  <div id="page">
+    <h1>Venues with Kudos</h1>
+    <% if @venues.count > 0 %>
+      <table>
+        <% @venues.each do |venue| %>
+          <tr>
+            <td><a href="/venues/<%= venue.id %>"><%= venue.name %></a></td>
+          </tr>
+        <% end %>
+      <% end %>
+    </table>
+  </div>

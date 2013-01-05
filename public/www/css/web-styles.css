@@ -1,0 +1,8 @@
+table { width: 80%;} 
+table th { text-align: left; }
+table tr { border: 1px solid #ccc; }
+h1 { margin: 10px auto; margin-bottom:.5em; }
+body { width: 50em; margin: 10px auto; }
+.address { font-size: .9em; }
+
+#page {margin:1em; }
