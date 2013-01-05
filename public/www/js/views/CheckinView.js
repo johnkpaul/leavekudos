@@ -5,8 +5,14 @@ define([
   'tpl!templates/checkinView.html'
 ], function($, _, Backbone, checkinTemplate){
   var CheckinView = Backbone.Marionette.ItemView.extend({
+    events: {
+        "click a": "selectCheckin"
+    },
     tagName: "li",
     template: checkinTemplate,
+    selectCheckin: function(){
+      require("app").router.controller.leaveKudosFor(this.model);
+    },
     onRender: function(){}
   });
 
