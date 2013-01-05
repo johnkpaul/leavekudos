@@ -9,7 +9,7 @@ define([
       initialize : function(models, options) {},
       url : function() {
         return '/api/kudos/mostrecent';
-      },
+      }
   });
 
   return KudosCollection;

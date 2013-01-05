@@ -48,6 +48,50 @@ p.checkins-info {
   margin: 20px auto;
 }
 
+#kudos {
+  padding: 0;
+  width: 90%;
+  margin: 0 auto;
+}
+
+#kudos li {
+  background: #ffffff;
+  -webkit-border-radius: 12px;
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+  border-radius:12px 12px;
+  padding: 10px;
+  border: 1px solid #ced6ad;
+  min-height: 52px;
+}
+
+#kudos li img {
+  display: block;
+  height: 50px;
+  width: 50px;
+  -webkit-border-radius: 12px;
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+  border-radius:12px 12px;
+  margin-left: 0px;
+  float: left;
+}
+
+#kudos li .kudo {
+  padding-left: 60px;
+}
+
+#kudos li .kudo .user {
+  color: #b0d136;
+}
+
+#kudos li .kudo p {
+  margin: 0;
+  padding: 0;
+}
+
+#kudos li .kudo p em {
+  color: #b3b3b3;
+}
+
 #checkin-collection {
   padding: 0;
   margin: 40px auto;
@@ -110,6 +154,8 @@ p.checkins-info {
 }
 
 #leave-kudos {
+  background: #9ea584;
+  padding: 10px 0;
   position: fixed;
   bottom: 0;
   width: 100%;

@@ -1,11 +1,9 @@
 define([
   'jquery',
   'underscore',
-  'backbone',
+  'backbone'
 ], function($, _, Backbone){
   var Kudos = Backbone.Model.extend({
-     
-  
   });
   return Kudos;
   
