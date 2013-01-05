@@ -10,11 +10,12 @@ define([
     events: {
         "click .js-submit-kudos": "submitKudos"
     },
-    submitKudos:function(options){
+    submitKudos:function(){
+      console.log(this.kudos);
       console.log("submitting kudos");
     },
-    initialize:function(options){
-      this.kudos = options.kudos;
+    initialize:function(){
+      this.kudos = this.model
     }
   });
 
