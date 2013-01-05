@@ -8,8 +8,6 @@ define([
   
   var AppRouter = Backbone.Router.extend({
     routes: {
-      'projects': 'showProjects',
-      'users': 'showContributors',
       '*actions': 'defaultAction'
     }
   });

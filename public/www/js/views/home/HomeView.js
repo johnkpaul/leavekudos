@@ -2,19 +2,11 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'text!templates/home/homeTemplate.html',
+  'tpl!templates/home/homeTemplate.html',
 ], function($, _, Backbone, homeTemplate){
-  var HomeView = Backbone.View.extend({
+  var HomeView = Backbone.Marionette.ItemView.extend({
     el: $("#page"),
-
-    render: function(){
-      
-      $('.menu li').removeClass('active');
-      $('.menu li a[href="#"]').parent().addClass('active');
-      this.$el.html(homeTemplate);
- 
-    }
-
+    template: homeTemplate
   });
 
   return HomeView;
