@@ -13,9 +13,12 @@ class KudosController < ApplicationController
     kudos = Kudo.recent
     kudos.each do |kudo|
       user = foursq_client.user(kudo.foursquare_user_id)
+      # TODO cache this or something to reduce API hits
       kudo.foursquare_username = user.firstName + " " + user.lastName
+      kudo.foursquare_avatar = user.photo
     end
-    render json: kudos.as_json(:include => :employee, :methods => :foursquare_username)
+    render json: kudos.as_json(:include => :employee, 
+                               :methods => [:foursquare_username, :foursquare_avatar])
   end
 
   def by_venue
