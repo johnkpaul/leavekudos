@@ -22,8 +22,6 @@ class OauthController < ApplicationController
 
     cookies[:fsq_token] = access_token.token
     client = FoursqWrapper.create_authenticated_client(access_token.token)
-    me = client.user('self')
-    puts me
-    render json: {me: me}
+    redirect_to '/www'
   end
 end
