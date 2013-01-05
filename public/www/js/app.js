@@ -7,7 +7,7 @@ define([
   'router', 
   'views/HeaderView', 
   'marionette'
-], function($, _, Backbone, DefaultLayout, Router, HeaderView){
+], function($, _, Backbone, DefaultLayout, Router, HeaderView, Marionette){
 
   var App = window.App = new Marionette.Application();
 

@@ -12,8 +12,7 @@ require.config({
   shim: {
     marionette : {
       deps : ['jquery', 'underscore', 'backbone'],
-      exports: 'Marionette',
-      init : function(){ return Backbone.Marionette; }
+      exports: 'Marionette'
     }
   }
 

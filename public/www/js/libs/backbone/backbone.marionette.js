@@ -26,6 +26,7 @@
 // Provide a container to store, retrieve and
 // shut down child views.
 
+define( "marionette", ['underscore', 'jquery', 'backbone'], function (_, $, Backbone) { 
 Backbone.ChildViewContainer = (function(Backbone, _){
   
   // Container Constructor
@@ -2226,3 +2227,6 @@ _.extend(Marionette.Module, {
 
   return Marionette;
 })(Backbone, _, $ || window.jQuery || window.Zepto || window.ender);
+  return Marionette; 
+
+} );
