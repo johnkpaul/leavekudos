@@ -4,8 +4,8 @@ require 'foursq_wrapper'
 class OauthController < ApplicationController
   
   def oauth2_client
-   OAuth2::Client.new(Settings.foursqapi.id, 
-                                Settings.foursqapi.secret, 
+   OAuth2::Client.new(Settings.foursq_api.id, 
+                                Settings.foursq_api.secret, 
                                 :site => 'http://foursquare.com/v2/',
                                 :token_url => "/oauth2/access_token",
                                 :authorize_url => "/oauth2/authenticate?response_type=code")

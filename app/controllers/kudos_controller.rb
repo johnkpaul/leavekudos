@@ -1,3 +1,6 @@
+require 'foursq_wrapper'
+require 'twitter_wrapper'
+
 class KudosController < ApplicationController
 
   skip_before_filter :verify_authenticity_token
@@ -19,9 +22,22 @@ class KudosController < ApplicationController
 
     kudo = Kudo.new(params[:kudo])
     if kudo.save
+      tweet_to_venue params[:kudo][:venue_id]
       render json: { kudo: kudo.as_json(:include => :employee) }
     else
       render json: { errors: kudo.errors.full_messages}, status: 400
+    end
+  end
+
+  private
+
+  def tweet_to_venue(venue_id)
+    access_token = cookies[:fsq_token]
+    fsq_client = FoursqWrapper.create_client
+    venue = fsq_client.venue(venue_id)
+    unless venue.contact.twitter != nil
+      venue_twitter_handle = venue.contact.twitter
+      TwitterWrapper.tweet_to_venue venue_twitter_handle
     end
   end
 
