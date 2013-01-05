@@ -3,28 +3,17 @@ define([
   'jquery',
   'underscore',
   'backbone',
-  'views/home/HomeView',
-], function($, _, Backbone, HomeView) {
+  'controllers/mainController',
+], function($, _, Backbone, mainController) {
   
-  var AppRouter = Backbone.Router.extend({
-    routes: {
-      '*actions': 'defaultAction'
-    }
-  });
-  
-  var initialize = function(){
-
-    var app_router = new AppRouter;
-    app_router.on('route:defaultAction', function (actions) {
-     
-        var homeView = new HomeView();
-        homeView.render();
-
+    var MyRouter = Backbone.Marionette.AppRouter.extend({
+      controller: mainController,
+      appRoutes: {
+        "": "loadHome",
+        "test": "loadTest"
+      }
     });
 
-    Backbone.history.start();
-  };
-  return { 
-    initialize: initialize
-  };
+    return MyRouter;
+   
 });

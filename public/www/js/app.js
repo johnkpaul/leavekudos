@@ -3,15 +3,22 @@ define([
   'jquery', 
   'underscore', 
   'backbone',
+  'views/layouts/default',
   'router', // Request router.js
   'marionette'
-], function($, _, Backbone, Router){
-  var initialize = function(){
-    // Pass in our Router module and call it's initialize function
-    Router.initialize();
-  };
+], function($, _, Backbone, DefaultLayout, Router){
 
-  return { 
-    initialize: initialize
-  };
+  var App = window.App = new Marionette.Application();
+
+  var Router = App.router = new Router();
+  App.addInitializer(function(options){
+    Backbone.history.start();
+  });
+
+  App.addRegions({
+    mainRegion: "#page"
+  });
+
+  return App;
+
 });
