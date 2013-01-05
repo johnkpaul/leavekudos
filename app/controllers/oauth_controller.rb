@@ -4,7 +4,7 @@ require 'foursq_wrapper'
 class OauthController < ApplicationController
   
   def oauth2_client
-   client = OAuth2::Client.new(Settings.foursqapi.id, 
+   OAuth2::Client.new(Settings.foursqapi.id, 
                                 Settings.foursqapi.secret, 
                                 :site => 'http://foursquare.com/v2/',
                                 :token_url => "/oauth2/access_token",
@@ -19,6 +19,11 @@ class OauthController < ApplicationController
   def callback
     access_token = oauth2_client.auth_code.get_token(params[:code], 
                                                     :redirect_uri => 'http://localhost:3000/callback')
-    puts access_token
+
+    cookies[:fsq_token] = access_token.token
+    client = FoursqWrapper.create_authenticated_client(access_token.token)
+    me = client.user('self')
+    puts me
+    render json: {me: me}
   end
 end
