@@ -12,4 +12,6 @@ Leavekudos::Application.routes.draw do
 
   resources :kudos
 
+  match "venue/:venue_id/kudos" => "kudos#by_venue"
+
 end
