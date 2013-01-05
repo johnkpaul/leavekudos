@@ -23,6 +23,42 @@ describe KudosController do
       subject
       response.body.should include kudo.anecdote
     end
+  end
+
+  describe "POST create" do
+    subject { post :create, kudo: {foursquare_user_id: foursquare_user_id, employee_id: employee_id, venue_id: venue_id_param } }
+    let(:employee_id) { employee.id }
+    let(:foursquare_user_id) { 123 }
+    let(:venue_id_param) { 1 }
+
+    it "should create a new kudo" do
+      expect { subject }.to change { Kudo.count }.by 1
+    end
+
+    context "missing employee" do
+      let(:employee_id) { 404 }
+
+      it "should return an error" do
+        subject
+        response.body.should include "Employee can't be blank"
+      end
+    end
+
+    context "missing foursquare user" do
+      let(:foursquare_user_id) { nil }
+      it "should return an error" do
+        subject
+        response.body.should include "Foursquare user can't be blank"
+      end
+    end
+
+    context "missing venue" do
+      let(:venue_id_param) { nil }
+      it "should return an error" do
+        subject
+        response.body.should include "Venue can't be blank"
+      end
+    end
 
   end
 
