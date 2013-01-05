@@ -6,10 +6,11 @@ define([
   'views/home/HomeView',
   'views/CheckinCollectionView',
   'views/LeaveKudosView',
+  'views/LastKudosView',
   'collections/kudos/KudosCollection',
   'collections/CheckinCollection',
   'collections/EmployeeCollection',
-], function($, _, Backbone, HomeView, CheckinCollectonView, SelectEmployeeView, KudosCollection, 
+], function($, _, Backbone, HomeView, CheckinCollectonView, SelectEmployeeView, LastKudosView, KudosCollection, 
                  CheckinCollection, EmployeeCollection) {
   
   var mainController = {
@@ -17,11 +18,18 @@ define([
     leaveKudosFor:function(checkinModel){
       var employeesCollection = new EmployeeCollection([], {venueId:checkinModel.get('venue').id});
       employeesCollection.fetch().then(function(){
-        var selectEmployeeView = new SelectEmployeeView({model:checkinModel});
+        var selectEmployeeView = new SelectEmployeeView({model:checkinModel, collection:employeesCollection});
         require("app").mainRegion.show(selectEmployeeView);
         require("app").headerRegion.currentView.showBack();
       });
     },
+
+    loadLastPage:function(kudosModel){
+      var lastKudosView = new LastKudosView({model:kudosModel});
+      require("app").mainRegion.show(lastKudosView);
+      require("app").headerRegion.currentView.showBack();
+    },
+
     loadCheckins:function(){
       var checkinCollection = new CheckinCollection();
       checkinCollection.fetch().then(function(){
