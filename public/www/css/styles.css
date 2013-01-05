@@ -6,6 +6,30 @@ ul {
   list-style-type: none;
 }
 
+#header {
+  background-image: -webkit-gradient(linear, left top, left bottom, from(#ffffff), to(#eef8c8)); /* Safari 4+, Chrome */
+  background-image: -webkit-linear-gradient(top, #ffffff, #eef8c8); /* Chrome 10+, Safari 5.1+, iOS 5+ */
+  background-image:    -moz-linear-gradient(top, #ffffff, #eef8c8); /* Firefox 3.6-15 */
+  background-image:      -o-linear-gradient(top, #ffffff, #eef8c8); /* Opera 11.10-12.00 */
+  background-image:         linear-gradient(to bottom, #ffffff, #eef8c8); /* Firefox 16+, IE10, Opera 12.50+ */
+  -webkit-box-shadow: 0 4px 10px -6px #000000; /* Safari 3-4, iOS 4.0.2 - 4.2, Android 2.3+ */
+  box-shadow: 0 4px 10px -6px #000000; /* Opera 10.5, IE9+, Firefox 4+, Chrome 6+, iOS 5 */
+}
+
+#header > div {
+  background: url('../imgs/header-logo.png') no-repeat center center;
+  min-height: 68px;
+}
+
+#header .js-back {
+
+  background: url('../imgs/back-button.png') no-repeat center center;
+  display: block;
+  height: 68px;
+  width: 133px;
+  text-indent: -9999px;
+}
+
 #container {
   background: #eef8c8;
   margin: 0 auto;
