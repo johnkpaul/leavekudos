@@ -26,7 +26,6 @@ ul {
 }
 
 #header .js-back {
-
   background: url('../imgs/back-button.png') no-repeat center center;
   display: block;
   height: 68px;
@@ -39,6 +38,46 @@ ul {
   margin: 0 auto;
   width: 100%;
   height: 100%;
+}
+
+#container h1 {
+  font-size: 24px;
+  font-weight: normal;
+  padding: 0;
+  margin: 10px 0;
+}
+
+#container p.describe {
+  margin: 0;
+  padding: 0;
+}
+
+#container .final p.describe {
+  margin-top: 20px;
+}
+
+#container textarea {
+  padding: 10px;
+  width: 90%;
+  border: 1px solid #ced6ad;
+  -webkit-border-radius: 12px;
+  -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
+  border-radius:12px 12px;
+  height: 50px;
+}
+
+#container .kudos-form {
+  width: 90%;
+  margin: 0 auto;
+}
+
+#container ::-webkit-input-placeholder {
+  font-style: italic;
+}
+
+#container .kudos-form .employees {
+  margin: 0;
+  padding: 0;
 }
 
 p.checkins-info {
@@ -98,30 +137,34 @@ p.checkins-info {
   width: 90%;
 }
 
-#checkin-collection li {
+#checkin-collection li, .kudos-form .employees li {
   position: relative;
   background: #ffffff;
   padding: 10px;
   border-bottom: 1px solid #dddddd;
   border-left: 1px solid #dddddd;
   border-right: 1px solid #dddddd;
+}
+
+#checkin-collection li {
   min-height: 40px;
 }
 
-#checkin-collection li:first-child {
+
+#checkin-collection li:first-child, .kudos-form .employees li:first-child {
   border-top: 1px solid #dddddd;
   -webkit-border-radius: 12px 12px 0 0;
    -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
           border-radius: 12px 12px 0 0;
 }
 
-#checkin-collection li:last-child {
+#checkin-collection li:last-child, .kudos-form .employees li:last-child {
   -webkit-border-radius: 0 0 12px 12px;
   -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
   border-radius: 0 0 12px 12px;
 }
 
-#checkin-collection li:nth-child(even) {
+#checkin-collection li:nth-child(even), .kudos-form .employees li:nth-child(even) {
   background: #f4f4f4;
 }
 
@@ -162,9 +205,18 @@ p.checkins-info {
   text-align: center;
 }
 
+.submit-kudos {
+  background: url('../imgs/leave-kudos-small.png') no-repeat center center;
+  display: block;
+  height: 75px;
+  width: 343px;
+  margin: 0 auto;
+  text-indent: -9999px;
+}
+
 #leave-kudos img {
   width: 100%;
   max-width: 521px;
   height: auto;
-  cursor:pointer;
+  cursor: pointer;
 }

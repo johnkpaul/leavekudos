@@ -1,0 +1,12 @@
+<div id="container">
+  <div id="header">
+    <h1><%= @venue.name %></h1>
+  </div>
+  <div id="page">
+    <ul>
+    <% @employees.each do |employee| %>
+      <li><%= employee.name %> <%= employee.kudos.count %></li>
+    <% end %>
+  </ul>
+  </div>
+</body>
