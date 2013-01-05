@@ -8,6 +8,13 @@ require.config({
     backbone: 'libs/backbone/backbone-min',
     marionette: 'libs/backbone/backbone.marionette',
     templates: '../templates'
+  }, 
+  shim: {
+    marionette : {
+      deps : ['jquery', 'underscore', 'backbone'],
+      exports: 'Marionette',
+      init : function(){ return Backbone.Marionette; }
+    }
   }
 
 });
