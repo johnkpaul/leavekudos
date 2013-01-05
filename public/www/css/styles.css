@@ -91,6 +91,7 @@ p.checkins-info {
   padding: 0;
   width: 90%;
   margin: 0 auto;
+  margin-bottom: 170px;
 }
 
 #kudos li {
@@ -101,6 +102,11 @@ p.checkins-info {
   padding: 10px;
   border: 1px solid #ced6ad;
   min-height: 52px;
+  margin: 10px 0;
+}
+
+#kudos li:first-child {
+  margin-top: 30px;
 }
 
 #kudos li img {

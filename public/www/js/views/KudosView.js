@@ -3,13 +3,13 @@ define([
   'underscore',
   'backbone',
   'views/kudo',
-  'tpl!templates/kudosView.html',
+  'tpl!templates/kudosView.html'
 ], function($, _, Backbone, KudoView, kudosTemplate){
   var KudosView = Backbone.Marionette.CompositeView.extend({
     itemView:KudoView, 
     template: kudosTemplate,
     appendHtml: function(collectionView, itemView){
-      collectionView.$("#kudos-list").append(itemView.el);
+      collectionView.$("#kudos").append(itemView.el);
     }
   });
 

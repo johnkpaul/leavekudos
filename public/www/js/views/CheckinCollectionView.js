@@ -3,7 +3,7 @@ define([
   'underscore',
   'backbone',
   'views/CheckinView',
-  'tpl!templates/checkinCollectionView.html',
+  'tpl!templates/checkinCollectionView.html'
 ], function($, _, Backbone, CheckinView, checkinCollectionView){
   var CheckinCollectionView = Backbone.Marionette.CompositeView.extend({
     template: checkinCollectionView,
