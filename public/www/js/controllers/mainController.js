@@ -4,15 +4,19 @@ define([
   'underscore',
   'backbone',
   'views/home/HomeView',
-], function($, _, Backbone, HomeView) {
+  'collections/kudos/KudosCollection',
+], function($, _, Backbone, HomeView, KudosCollection) {
   
   var mainController = {
     loadTest:function(){
       alert("TEST!!!");
     },
     loadHome:function(){
-      var homeView = new HomeView();
-      homeView.render();
+      var kudosCollection = new KudosCollection();
+      kudosCollection.fetch().then(function(){
+        var homeView = new HomeView({collection:kudosCollection});
+        homeView.render();
+      });
     }
   }
 
