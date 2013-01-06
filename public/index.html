@@ -2,46 +2,41 @@
 <html>
   <head>
     <title>Leave Kudos</title>
+    <link rel="stylesheet" href="www/css/styles.css">
     <style type="text/css" media="screen">
       body {
         background: #dcdddf;
       }
 
-      img {
-        display: block;
-        margin: 100px auto;
+      a{
+        width: 33%;
+        display:block;
+        float:left;
       }
-
-      img.splash {
-        width: 80%;
-        max-width: 500px;
-        height: auto;
+      .buttons{
+        margin:auto;
+        overflow:auto;
+        width:70%;
       }
-
       img.connect {
-        width: 60%;
-        max-width: 300px;
-        height: auto;
+          width:100%;
       }
     </style>
-    <script type="text/javascript">
-      function about() {
-        info = document.getElementById('about-content');
-        if (window.XMLHttpRequest)
-          { xhr = new XMLHttpRequest(); }
-        else
-          { xhr = new ActiveXObject("Microsoft.XMLHTTP"); }
-        xhr.open("GET","rails/info/properties",false);
-        xhr.send("");
-        info.innerHTML = xhr.responseText;
-        info.style.display = 'block'
-      }
-    </script>
   </head>
   <body>
-    <img class="splash" src="www/imgs/splash-beta.png" />
-    <a href="/connect">
-      <img class="connect" src="www/imgs/connect-button.png" />
-    </a>
+    <div id="splash">
+    </div>
+    <div class="buttons">
+        <a href="/connect">
+          <img class="connect" src="www/imgs/app_store_icon.png" />
+        </a>
+        <a href="/connect">
+          <img class="connect" src="www/imgs/connect-button.png" />
+        </a>
+        <a href="/connect">
+          <img class="connect" src="www/imgs/google_play_icon.png" />
+        </a>
+    </div>
+    <script data-main="www/js/pre-login-main" src="www/js/libs/require/require.js"></script>
   </body>
 </html>
