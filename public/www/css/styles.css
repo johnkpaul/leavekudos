@@ -26,11 +26,8 @@ ul {
 }
 
 #header .js-back {
-  background: url('../imgs/back-button.png') no-repeat center center;
-  display: block;
-  height: 68px;
-  width: 133px;
-  text-indent: -9999px;
+  width: 20%;
+  cursor:pointer;
 }
 
 #container {

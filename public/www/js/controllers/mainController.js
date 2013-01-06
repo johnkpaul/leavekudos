@@ -51,8 +51,10 @@ define([
   _.each(mainController, function(value, key, controller) {
       var wrapped = _.wrap(value, function(func) {
           var sliced = Array.prototype.slice.call(arguments, 1)
-          mainController.lastHandler = key;
-          mainController.lastArguments = sliced;
+          mainController.lastHandler = mainController.currentHandler;
+          mainController.lastArguments = mainController.currentArguments;
+          mainController.currentHandler = key;
+          mainController.currentArguments = sliced;
           return func.apply(this, sliced);
         });
         return controller[key] = wrapped;
