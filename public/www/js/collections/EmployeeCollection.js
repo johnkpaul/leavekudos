@@ -10,7 +10,7 @@ define([
         this.venueId = options.venueId;
       },
       url : function() {
-        return '/api/venue/500edd47e4b0b3861a6b84f0/employees';
+        return '/api/venue/'+this.venueId+'/employees';
       },
   });
 
