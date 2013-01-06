@@ -10,8 +10,6 @@ class TwitterWrapper
     end
 
     message = " someone left kudos for " + employee_desc + "! More at http://www.leavekudos.com"
-    # TESTING
-    handle = "johnkpaul"
 
     Twitter.update("@" + handle + " " + message)
   end 
