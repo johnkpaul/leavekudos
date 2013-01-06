@@ -56,12 +56,12 @@ ul {
 
 #container textarea {
   padding: 10px;
-  width: 90%;
+  width: 100%;
   border: 1px solid #ced6ad;
   -webkit-border-radius: 12px;
   -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
   border-radius:12px 12px;
-  height: 50px;
+  height: 60px;
 }
 
 #container .kudos-form {
@@ -71,12 +71,13 @@ ul {
 
 #container ::-webkit-input-placeholder {
   font-style: italic;
+  font-size: 130%;
 }
 
 #container .kudos-form .employees {
   margin: 0;
   padding: 0;
-  width: 90%;
+  width: 100%;
 }
 
 p.checkins-info {
@@ -268,7 +269,7 @@ p.checkins-info {
   background: url('../imgs/leave-kudos-small.png') no-repeat center center;
   display: block;
   height: 75px;
-  width: 343px;
+  width: 100%;
   margin: 0 auto;
   text-indent: -9999px;
 }
