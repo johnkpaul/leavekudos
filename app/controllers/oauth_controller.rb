@@ -24,6 +24,7 @@ class OauthController < ApplicationController
     cookies[:fsq_token] = access_token.token
     client = FoursqWrapper.create_authenticated_client(access_token.token)
     foursq_user = client.user('self')
+    User.find_or_create_by_foursquare_user_id!(foursq_user.user_id, foursquare_user_hash: foursq_user.to_hash)
     cookies[:fsq_userid] = foursq_user.id
     logger.info "Connected with user #{foursq_user.id}"
     redirect_to '/www'

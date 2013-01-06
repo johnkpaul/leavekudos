@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130106000619) do
+ActiveRecord::Schema.define(:version => 20130106181154) do
 
   create_table "employees", :force => true do |t|
     t.string "venue_id"
@@ -30,6 +30,21 @@ ActiveRecord::Schema.define(:version => 20130106000619) do
     t.string   "foursquare_username"
     t.string   "foursquare_avatar"
     t.string   "foursquare_venue_name"
+  end
+
+  create_table "users", :force => true do |t|
+    t.string   "reset_password_token"
+    t.datetime "reset_password_sent_at"
+    t.datetime "remember_created_at"
+    t.integer  "sign_in_count",          :default => 0
+    t.datetime "current_sign_in_at"
+    t.datetime "last_sign_in_at"
+    t.string   "current_sign_in_ip"
+    t.string   "last_sign_in_ip"
+    t.string   "foursquare_user_id"
+    t.text     "foursquare_user_hash"
+    t.datetime "created_at",                            :null => false
+    t.datetime "updated_at",                            :null => false
   end
 
 end
