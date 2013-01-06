@@ -4,17 +4,18 @@
   </div>
   <div id="page">
     <h1><%= @venue.name %></h1>
-    <p class="address"><%= @venue.location.address %>, <%= @venue.location.city %>, <%= @venue.location.state %></p>
+    <p class="address"> At <%= @venue.location.address %>, <%= @venue.location.city %>, <%= @venue.location.state %></p>
+    <h1>Has these amazing employees</h1>
     <% if @employees.count > 0 %>
       <table>
         <tr>
-          <th>Person</th>
-          <th>Description</th>
-          <th>Kudos</th>
+          <!--<th>What we think his or her name is</th>-->
+          <th>Description of employee</th>
+          <th>How many Kudos</th>
         </tr>
         <% @employees.each do |employee| %>
           <tr>
-            <td><%= employee.name %></td>
+            <!--<td><%= employee.name %></td> -->
             <td><%= employee.description %></td>
             <td><%= employee.kudos.count%></td>
           </tr>

@@ -278,3 +278,14 @@ p.checkins-info {
   height: auto;
   cursor: pointer;
 }
+
+
+/*Venue page styles*/
+h1{
+ text-align:center;
+ margin:0px;
+ padding:0px;
+}
+
+.address{
+}
