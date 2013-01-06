@@ -17,6 +17,8 @@ define([
       console.log("submitting kudos");
       this.kudos.save().then(function(){
         require("app").router.controller.loadHome();
+        require("app").router.navigate("");
+
       });
     },
     initialize:function(){
