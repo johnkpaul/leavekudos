@@ -2,10 +2,11 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'marionette',
   'models/kudos',
   'tpl!templates/leaveKudos.html',
-], function($, _, Backbone, KudosModel, leaveKudosTemplate){
-  var LeaveKudosView = Backbone.Marionette.ItemView.extend({
+], function($, _, Backbone, Marionette, KudosModel, leaveKudosTemplate){
+  var LeaveKudosView = Marionette.ItemView.extend({
     template: leaveKudosTemplate,
     events: {
         "click .js-select-employee": "selectEmployee", 

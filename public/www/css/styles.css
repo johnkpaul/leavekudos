@@ -90,7 +90,7 @@ p.checkins-info {
   padding: 0;
   width: 90%;
   margin: 0 auto;
-  margin-bottom: 170px;
+  margin-bottom: 70px;
 }
 
 #kudos li {
@@ -98,10 +98,16 @@ p.checkins-info {
   -webkit-border-radius: 12px;
   -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
   border-radius:12px 12px;
-  padding: 10px;
+  padding: 10px 10px 20px 10px;
   border: 1px solid #ced6ad;
   min-height: 52px;
   margin: 10px 0;
+  position:relative;
+}
+#kudos li blockquote {
+  position:absolute;
+  right:5px;
+  top:-3px;
 }
 
 #kudos li:first-child {
@@ -132,11 +138,38 @@ p.checkins-info {
   padding: 0;
 }
 
+#kudos li .arrow {
+top: 50%;
+left: -11px;
+margin-top: -11px;
+border-right-color: #999;
+border-right-color: rgba(0, 0, 0, 0.25);
+border-left-width: 0;
+border-width: 11px;
+position: absolute;
+display: block;
+width: 0;
+height: 0;
+border-color: transparent;
+border-style: solid;
+}
+
+#kudos li .arrow::after {
+border-width: 10px;
+position: absolute;
+display: block;
+width: 0;
+height: 0;
+border-color: transparent;
+border-style: solid;
+content: "";
+}
 #kudos li .kudo blockquote {
   background: url('../imgs/quote.png') no-repeat;
-  padding: 10px 20px 0 50px;
+  background-size:30px 25px;
+  padding: 10px 0 0 36px;
   margin: 5px;
-  min-height: 25px;
+  min-height: 36px;
   font-style: italic;
 }
 

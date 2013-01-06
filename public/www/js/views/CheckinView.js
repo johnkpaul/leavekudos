@@ -2,9 +2,10 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'marionette',
   'tpl!templates/checkinView.html'
-], function($, _, Backbone, checkinTemplate){
-  var CheckinView = Backbone.Marionette.ItemView.extend({
+], function($, _, Backbone, Marionette, checkinTemplate){
+  var CheckinView = Marionette.ItemView.extend({
     events: {
         "click a": "selectCheckin"
     },
