@@ -2,13 +2,13 @@ table { width: 100%;background:white;border:1px solid #ced6ad; border-radius:12p
 table th { text-align: left; }
 table tr { border: 1px solid #ccc; }
 h1 { margin: 10px auto; margin-bottom:.5em; }
-body { width: 50em; margin: 10px auto; }
+body { margin: 10px auto; }
 .address { 
  text-align:center;
  margin:0px;
  padding:0px;
 font-size: 1.2em; 
-
 }
+#container { width:100%;} 
 
-#page {margin:1em; }
+#page { margin:1em; }
