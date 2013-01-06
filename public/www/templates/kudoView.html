@@ -1,6 +1,6 @@
 <img src="<%= foursquare_avatar %>" />
 <div class="kudo">
-  <span class="user"><%= foursquare_username %></span>
-  <p><em>left kudos for </em><%= employee.name == null ? employee.description : employee.name %> at <%= foursquare_venue_name %></p>
+  <span class="user"><%= foursquare_username %></span><em>left kudos for </em>
+  <p><%= employee.name == null ? employee.description : employee.name %> at <%= foursquare_venue_name %></p>
   <blockquote><%= anecdote %></blockquote>
 </div>

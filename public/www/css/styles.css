@@ -109,6 +109,13 @@ p.checkins-info {
   right:5px;
   top:-3px;
 }
+@media all and (max-width: 480px){
+    #kudos li blockquote {
+      position:static;
+      right:5px;
+      top:-3px;
+    }
+}
 
 #kudos li:first-child {
   margin-top: 30px;
@@ -171,8 +178,9 @@ p.checkins-info {
   font-style: italic;
 }
 
-#kudos li .kudo p em {
+#kudos li .kudo em {
   color: #b3b3b3;
+  margin-left:4px;
 }
 
 #checkin-collection {
