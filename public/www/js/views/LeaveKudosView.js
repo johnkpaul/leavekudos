@@ -14,7 +14,7 @@ define([
     inputEmployeeDescription: function(e){
       var $target = $(e.target)
       this.kudos.set('employee', {});
-      this.kudos.get('employee').description = $target.data('employee-description');
+      this.kudos.get('employee').description = $target.val();
       this.proceed();
     },
     selectEmployee: function(e){
