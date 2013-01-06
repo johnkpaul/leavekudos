@@ -133,6 +133,14 @@ p.checkins-info {
   padding: 0;
 }
 
+#kudos li .kudo blockquote {
+  background: url('../imgs/quote.png') no-repeat;
+  padding: 10px 20px 0 50px;
+  margin: 5px;
+  min-height: 25px;
+  font-style: italic;
+}
+
 #kudos li .kudo p em {
   color: #b3b3b3;
 }
