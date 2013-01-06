@@ -2,6 +2,7 @@ require 'twitter'
 require 'ruby-bitly'
 
 class TwitterWrapper
+  include ActionView::Helpers::TextHelper
   def TwitterWrapper.tweet_to_venue(handle, kudo)
     # TODO This needs to only happen once?
     Twitter.configure do |config|
@@ -15,7 +16,9 @@ class TwitterWrapper
     short_url = bitly.url
     Rails.logger.info "short url is: #{short_url}"
     handle = "johnkpaul"
-    message = "@#{handle} someone left kudos for #{kudo.employee.description}! #kudos info at #{short_url}"
+    length_for_desc = 140 - 42 - handle.length - short_url.length
+    description =  ActionView::Helpers::TextHelper.truncate(kudo.employee.description, :length => length_for_desc)
+    message = "@#{handle} someone left kudos for #{description}! #kudos info at #{short_url}"
 
     Rails.logger.info "unsent tweet message: #{message}"
 
