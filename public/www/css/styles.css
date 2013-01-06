@@ -75,6 +75,7 @@ ul {
 #container .kudos-form .employees {
   margin: 0;
   padding: 0;
+  width: 90%;
 }
 
 p.checkins-info {
@@ -152,6 +153,7 @@ p.checkins-info {
   position: relative;
   background: #ffffff;
   padding: 10px;
+  width:100%;
   border-bottom: 1px solid #dddddd;
   border-left: 1px solid #dddddd;
   border-right: 1px solid #dddddd;
