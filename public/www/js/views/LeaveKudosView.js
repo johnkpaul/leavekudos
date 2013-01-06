@@ -13,10 +13,13 @@ define([
         "blur .js-employee-description": "inputEmployeeDescription"
     },
     inputEmployeeDescription: function(e){
-      var $target = $(e.target)
-      this.kudos.set('employee', {});
-      this.kudos.get('employee').description = $target.val();
-      this.proceed();
+      var $target = $(e.target);
+      var desc = $target.val();
+      if(desc.length > 3 ) {
+        this.kudos.set('employee', {});
+        this.kudos.get('employee').description = $target.val();
+        this.proceed();
+      }
     },
     selectEmployee: function(e){
       var $target = $(e.target)
