@@ -4,6 +4,7 @@ gem 'rails', '3.2.10'
 
 gem 'pg'
 gem 'devise'
+gem 'ruby-bitly'
 
 group :development do
   gem 'sqlite3'

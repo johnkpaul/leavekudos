@@ -1,4 +1,5 @@
 require 'twitter'
+require 'ruby-bitly'
 
 class TwitterWrapper
   def TwitterWrapper.tweet_to_venue(handle, kudo)
@@ -10,8 +11,11 @@ class TwitterWrapper
       config.oauth_token_secret = Settings.twitter_api.token_secret
     end
 
-    #TESTING
-    message = "@johnkpaul someone left kudos for #{kudo.employee.description}! More at http://www.leavekudos.com"
+    bitly = Bitly.shorten("http://www.leavekudos.com/venues/#{kudo.venue_id}", "johnkpaul", "R_f5b64ad86604a50d7d1c4d1cc96453af")
+    short_url = bitly.url
+    Rails.logger.info "short url is: #{short_url}"
+    handle = "johnkpaul"
+    message = "@#{handle} someone left kudos for #{kudo.employee.employee_desc}! #kudos info at #{short_url}"
 
     Rails.logger.info "unsent tweet message: #{message}"
 
