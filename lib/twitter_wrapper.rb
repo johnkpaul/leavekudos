@@ -9,7 +9,7 @@ class TwitterWrapper
       config.oauth_token_secret = Settings.twitter_api.token_secret
     end
 
-    message = " someone left kudos for " + employee_desc + "!"
+    message = " someone left kudos for " + employee_desc + "! More at http://www.leavekudos.com"
     # TESTING
     handle = "johnkpaul"
 
