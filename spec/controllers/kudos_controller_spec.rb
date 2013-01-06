@@ -1,4 +1,5 @@
 require 'spec_helper'
+require 'foursquare2'
 
 describe KudosController do
 
@@ -8,7 +9,6 @@ describe KudosController do
 
   describe "GET most_recent" do
     subject { 
-      request.cookies['fsq_token'] = '4QMVGYYFOUBKDVPSXLS41GUUUWRCCBUJ3IIU2LFCXZVPXA0S'
       get :most_recent 
     }
 
@@ -29,7 +29,19 @@ describe KudosController do
   end
 
   describe "POST create" do
-    subject { post :create, kudo: kudo_parameters }
+    subject { 
+      request.cookies['fsq_token'] = 'dummy_access_token'
+
+      dummy_fsq_client = double(Foursquare2::Client)
+      dummy_fsq_client.stub(:user) { 
+        OpenStruct.new  firstName: "FirstTest", lastName: "LastTest", photo: "http://example.com/avatar.jpg" 
+      }
+      dummy_fsq_client.stub(:venue) {
+        OpenStruct.new  name: "Test Venue"
+      }
+      FoursqWrapper.stub(:create_authenticated_client) { dummy_fsq_client }
+      post :create, kudo: kudo_parameters 
+    }
     let(:kudo_parameters) {
       {
         foursquare_user_id: foursquare_user_id,
