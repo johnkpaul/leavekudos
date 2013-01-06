@@ -8,6 +8,9 @@
       body {
         background: #EEF8C8;
       }
+      #kudos {
+        margin-bottom:0px;
+      }
 
       .buttons a{
         width: 33%;
@@ -31,11 +34,42 @@
       img.connect {
           width:100%;
       }
+      #vid{
+          width:50%;
+          float:left;
+      }
+      .iphone{
+          position:relative;
+          background:url(/www/imgs/iphone_shell.png) no-repeat 0px 0px;
+          width:369px;
+          height:715px;
+          margin:auto;
+      }
+      .iphone iframe{
+          position:absolute;
+        top:119px;
+        left:26px;
+      }
+      #splash{
+          width:50%;
+          float:left;
+      }
     </style>
   </head>
   <body>
+    <div class="copy" style="text-align:center;">
+      <img src="/www/imgs/header-logo-beta.png" >
+      <p>Leave Kudos is devoted to recognizing excellent service at the places you visit everyday. Download our app &amp; start Leaving Kudos for stars in your daily life.</p>
+    </div>
+    <div id="splash">
+    </div>
+    <div id="vid">
+        
+        <div class="iphone">
+            <iframe src="http://player.vimeo.com/video/20580914" width="269" height="477" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+        </div>
+    </div>
     <div class="copy">
-      <img src="/www/imgs/header-logo-beta.png" style="float:left;">
       <p>Connect with foursquare and leave kudos now!</p>
       <p>Mobile apps coming soon</p>
     </div>
@@ -49,8 +83,6 @@
         <a href="#" class="disabled">
           <img class="connect" src="www/imgs/google_play_icon.png" />
         </a>
-    </div>
-    <div id="splash">
     </div>
     <script data-main="www/js/pre-login-main" src="www/js/libs/require/require.js"></script>
 <script type="text/javascript">
