@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="www/css/styles.css">
     <style type="text/css" media="screen">
       body {
-        background: #dcdddf;
+        background: #EEF8C8;
       }
 
       a{
@@ -15,29 +15,42 @@
         float:left;
         padding-right:10px;
       }
+      a.disabled{
+        pointer-events:none;
+        cursor:normal;
+        opacity:.2;
+      }
       .buttons{
         margin:auto;
         overflow:auto;
         width:70%;
       }
+.foursquare{margin-top:13px;}
+.copy p{text-align:center;font-size:120%;margin:0px;}
+.copy{padding:20px 0px;width:80%;margin:auto;overflow:auto;}
       img.connect {
           width:100%;
       }
     </style>
   </head>
   <body>
-    <div id="splash">
+    <div class="copy">
+      <img src="/www/imgs/header-logo-beta.png" style="float:left;">
+      <p>Connect with foursquare and leave kudos now!</p>
+      <p>Mobile apps coming soon</p>
     </div>
     <div class="buttons">
-        <a href="/connect">
+        <a href="#" class="disabled">
           <img class="connect" src="www/imgs/app_store_icon.png" />
         </a>
-        <a href="/connect">
+        <a href="/connect" class="foursquare">
           <img class="connect" src="www/imgs/connect-button.png" />
         </a>
-        <a href="/connect">
+        <a href="#" class="disabled">
           <img class="connect" src="www/imgs/google_play_icon.png" />
         </a>
+    </div>
+    <div id="splash">
     </div>
     <script data-main="www/js/pre-login-main" src="www/js/libs/require/require.js"></script>
   </body>
