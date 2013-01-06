@@ -7,7 +7,10 @@ define([
 ], function($, _, Backbone, Marionette, kudoViewTemplate){
   var KudosView = Marionette.ItemView.extend({
     tagName: 'li',
-    template: kudoViewTemplate
+    template: kudoViewTemplate, 
+    onRender: function(){
+      this.$el.addClass("arrow_box");
+    }
   });
 
   return KudosView;

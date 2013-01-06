@@ -138,31 +138,29 @@ p.checkins-info {
   padding: 0;
 }
 
-#kudos li .arrow {
-top: 50%;
-left: -11px;
-margin-top: -11px;
-border-right-color: #999;
-border-right-color: rgba(0, 0, 0, 0.25);
-border-left-width: 0;
-border-width: 11px;
-position: absolute;
-display: block;
-width: 0;
-height: 0;
-border-color: transparent;
-border-style: solid;
+.arrow_box:after, .arrow_box:before {
+        right: 100%;
+        border: solid transparent;
+        content: " ";
+        height: 0;
+        width: 0;
+        position: absolute;
+        pointer-events: none;
 }
 
-#kudos li .arrow::after {
-border-width: 10px;
-position: absolute;
-display: block;
-width: 0;
-height: 0;
-border-color: transparent;
-border-style: solid;
-content: "";
+.arrow_box:after {
+        border-color: rgba(255, 255, 255, 0);
+        border-right-color: #ffffff;
+        border-width: 10px;
+        top: 50%;
+        margin-top: -10px;
+}
+.arrow_box:before {
+        border-color: rgba(206, 214, 173, 0);
+        border-right-color: #CED6AD;
+        border-width: 11px;
+        top: 50%;
+        margin-top: -11px;
 }
 #kudos li .kudo blockquote {
   background: url('../imgs/quote.png') no-repeat;
