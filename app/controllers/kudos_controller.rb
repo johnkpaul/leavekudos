@@ -6,8 +6,6 @@ class KudosController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def most_recent
-    # Iterate through each recent item to give a rich user
-    # object back
     render json: Kudo.recent.as_json(:include => :employee)
   end
 
@@ -16,6 +14,7 @@ class KudosController < ApplicationController
   end
 
   def create
+    puts "POSTing kudos"
     employee = ""
     if params[:kudo][:employee]
       params[:kudo][:employee][:venue_id] = params[:kudo][:venue_id]
@@ -37,11 +36,14 @@ class KudosController < ApplicationController
   private
 
   def tweet_to_venue(venue_id, employee_desc)
+    puts "KudosController: attempting to tweet to #{venue_id}"
     fsq_client = FoursqWrapper.create_client
     venue = fsq_client.venue(venue_id)
     if venue.contact.twitter 
       handle = venue.contact.twitter
       TwitterWrapper.tweet_to_venue handle,employee_desc
+    else
+      puts "#{venue_id} doesn't have a twitter handle."
     end
   end
 
