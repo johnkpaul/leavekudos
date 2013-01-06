@@ -2,9 +2,10 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'marionette',
   'tpl!templates/kudoView.html',
-], function($, _, Backbone, kudoViewTemplate){
-  var KudosView = Backbone.Marionette.ItemView.extend({
+], function($, _, Backbone, Marionette, kudoViewTemplate){
+  var KudosView = Marionette.ItemView.extend({
     tagName: 'li',
     template: kudoViewTemplate
   });
