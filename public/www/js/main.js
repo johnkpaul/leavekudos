@@ -6,6 +6,7 @@ require.config({
     jquery: 'libs/jquery/jquery-min',
     underscore: 'libs/underscore/underscore-min',
     backbone: 'libs/backbone/backbone-min',
+    "backbone-touch": 'libs/backbone/backbone.touch',
     marionette: 'libs/backbone/backbone.marionette',
     templates: '../templates'
   }, 
