@@ -26,7 +26,7 @@ class KudosController < ApplicationController
     kudo = Kudo.new(params[:kudo])
     kudo.add_foursquare_fields cookies[:fsq_token]
     if kudo.save
-      tweet_to_venue kudo
+      tweet = tweet_to_venue kudo
       render json: { kudo: kudo.as_json(:include => :employee) }
     else
       render json: { errors: kudo.errors.full_messages}, status: 400

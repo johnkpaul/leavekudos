@@ -4,4 +4,4 @@ foursq_api:
   redirect_url: http://localhost:3000/callback
 
 tweeting:
-  enabled: false
+  enabled: true 

@@ -10,13 +10,16 @@ class TwitterWrapper
       config.oauth_token_secret = Settings.twitter_api.token_secret
     end
 
-    message = "@#{handle} someone left kudos for #{kudo.employee.employee_desc}! More at http://www.leavekudos.com"
+    #TESTING
+    message = "@johnkpaul someone left kudos for #{kudo.employee.description}! More at http://www.leavekudos.com"
 
     Rails.logger.info "unsent tweet message: #{message}"
 
     if Settings.tweeting.enabled
       Rails.logger.info "tweeting."
-      Twitter.update(message)
+      tweet = Twitter.update(message)
+      kudo.add_twitter_fields tweet
+      kudo.save
     end
 
   end 

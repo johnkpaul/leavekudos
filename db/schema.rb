@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130106181154) do
+ActiveRecord::Schema.define(:version => 20130106221136) do
 
   create_table "employees", :force => true do |t|
     t.string "venue_id"
@@ -30,6 +30,8 @@ ActiveRecord::Schema.define(:version => 20130106181154) do
     t.string   "foursquare_username"
     t.string   "foursquare_avatar"
     t.string   "foursquare_venue_name"
+    t.string   "tweet_id"
+    t.string   "tweet_text"
   end
 
   create_table "users", :force => true do |t|
