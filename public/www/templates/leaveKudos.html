@@ -4,7 +4,7 @@
   <textarea class="employee-description js-employee-description" type="text" placeholder="It can be their name or just a description"></textarea>
   <ul class="employees">
     <% for ( var i = 0; i < collection.length; i++ ) { %>
-      <li class="js-select-employee" data-employee-name="$<%= collection[i].name%>" data-employee-description="$<%= collection[i].description %> "data-employee-id="$<%= collection[i].id%>"><%=collection[i].description%></li>
+      <li class="js-select-employee" data-employee-name="<%= collection[i].name%>" data-employee-description="<%= collection[i].description %> "data-employee-id="<%= collection[i].id%>"><%=collection[i].description%></li>
     <% } %>
   </ul>
 </div>
