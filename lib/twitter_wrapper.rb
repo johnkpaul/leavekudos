@@ -1,7 +1,7 @@
 require 'twitter'
 
 class TwitterWrapper
-  def TwitterWrapper.tweet_to_venue(venue_twitter_handle)
+  def TwitterWrapper.tweet_to_venue(handle, employee_desc)
     Twitter.configure do |config|
       config.consumer_key = Settings.twitter_api.key
       config.consumer_secret = Settings.twitter_api.secret
@@ -9,7 +9,11 @@ class TwitterWrapper
       config.oauth_token_secret = Settings.twitter_api.token_secret
     end
 
-    Twitter.update("debug tweet " + Time.now.to_f.to_s)
+    message = " someone left kudos for " + employee_desc + "!"
+    # TESTING
+    handle = "johnkpaul"
+
+    Twitter.update("@" + handle + " " + message)
   end 
 
 end

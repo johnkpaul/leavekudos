@@ -16,7 +16,7 @@ class Kudo < ActiveRecord::Base
   def add_foursquare_fields(token)
     client = FoursqWrapper.create_authenticated_client(token)
     user = client.user('self')
-    self.foursquare_username = user.firstName + user.lastName
+    self.foursquare_username = "#{user.firstName} #{user.lastName}"
     self.foursquare_avatar = user.photo
     self.foursquare_venue_name = client.venue(self.venue_id).name
   end

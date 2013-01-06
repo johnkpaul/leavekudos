@@ -16,16 +16,18 @@ class KudosController < ApplicationController
   end
 
   def create
+    employee = ""
     if params[:kudo][:employee]
       params[:kudo][:employee][:venue_id] = params[:kudo][:venue_id]
-      params[:kudo][:employee_id] = Employee.create(params[:kudo][:employee]).id
+      employee = Employee.create(params[:kudo][:employee])
+      params[:kudo][:employee_id] = employee.id
       params[:kudo].delete :employee
     end
 
     kudo = Kudo.new(params[:kudo])
     kudo.add_foursquare_fields cookies[:fsq_token]
     if kudo.save
-      tweet_to_venue params[:kudo][:venue_id]
+      tweet_to_venue params[:kudo][:venue_id], employee.description
       render json: { kudo: kudo.as_json(:include => :employee) }
     else
       render json: { errors: kudo.errors.full_messages}, status: 400
@@ -34,12 +36,12 @@ class KudosController < ApplicationController
 
   private
 
-  def tweet_to_venue(venue_id)
+  def tweet_to_venue(venue_id, employee_desc)
     fsq_client = FoursqWrapper.create_client
     venue = fsq_client.venue(venue_id)
-    unless venue.contact.twitter != nil
-      venue_twitter_handle = venue.contact.twitter
-      TwitterWrapper.tweet_to_venue venue_twitter_handle
+    if venue.contact.twitter 
+      handle = venue.contact.twitter
+      TwitterWrapper.tweet_to_venue handle,employee_desc
     end
   end
 
