@@ -11,7 +11,7 @@ class Kudo < ActiveRecord::Base
 
   accepts_nested_attributes_for :employee
 
-  scope :recent, order(:created_at).limit(5)
+  scope :recent, order('created_at desc').limit(5)
 
   def add_foursquare_fields(token)
     client = FoursqWrapper.create_authenticated_client(token)
