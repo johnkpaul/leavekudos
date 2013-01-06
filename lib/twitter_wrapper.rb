@@ -20,10 +20,14 @@ class TwitterWrapper
     Rails.logger.info "unsent tweet message: #{message}"
 
     if Settings.tweeting.enabled
-      Rails.logger.info "tweeting."
-      tweet = Twitter.update(message)
-      kudo.add_twitter_fields tweet
-      kudo.save
+      begin
+        Rails.logger.info "tweeting."
+        tweet = Twitter.update(message)
+        kudo.add_twitter_fields tweet
+        kudo.save
+      rescue Twitter::Error
+        Rails.logger.error $!
+      end
     end
 
   end 
