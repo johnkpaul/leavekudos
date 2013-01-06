@@ -14,7 +14,7 @@ class KudosController < ApplicationController
   end
 
   def create
-    puts "POSTing kudos"
+    logger.info "creating kudos"
     employee = ""
     if params[:kudo][:employee]
       params[:kudo][:employee][:venue_id] = params[:kudo][:venue_id]
@@ -36,14 +36,14 @@ class KudosController < ApplicationController
   private
 
   def tweet_to_venue(kudo)
-    puts "KudosController: attempting to tweet to #{kudo.venue_id}"
+    logger.debug "attempting to tweet to #{kudo.venue_id}"
     fsq_client = FoursqWrapper.create_client
     venue = fsq_client.venue(kudo.venue_id)
     if venue.contact.twitter 
       handle = venue.contact.twitter
       TwitterWrapper.tweet_to_venue handle, kudo
     else
-      puts "#{kudo.venue_id} doesn't have a twitter handle."
+      logger.info "Venue #{kudo.venue_id} doesn't have a twitter handle."
     end
   end
 

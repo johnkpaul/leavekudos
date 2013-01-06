@@ -13,18 +13,19 @@ class OauthController < ApplicationController
 
   def register
     # Start the oauth flow
-    puts "beginning oauth flow"
+    logger.debug "Beginning oauth flow"
     redirect_to oauth2_client.auth_code.authorize_url(:redirect_uri => Settings.foursq_api.redirect_url)
   end
 
   def callback
-    puts "handling callback for #{params[:code]}"
+    logger.debug "Handling callback for #{params[:code]}"
     access_token = oauth2_client.auth_code.get_token(params[:code], 
                                                     :redirect_uri => Settings.foursq_api.redirect_url)
     cookies[:fsq_token] = access_token.token
     client = FoursqWrapper.create_authenticated_client(access_token.token)
     foursq_user = client.user('self')
     cookies[:fsq_userid] = foursq_user.id
+    logger.info "Connected with user #{foursq_user.id}"
     redirect_to '/www'
   end
 end

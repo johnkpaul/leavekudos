@@ -12,11 +12,13 @@ class TwitterWrapper
 
     message = "@#{handle} someone left kudos for #{kudo.employee.employee_desc}! More at http://www.leavekudos.com"
 
+    Rails.logger.info "unsent tweet message: #{message}"
+
     if Settings.tweeting.enabled
+      Rails.logger.info "tweeting."
       Twitter.update(message)
     end
 
-    puts "Tweeting #{message}"
   end 
 
 end
