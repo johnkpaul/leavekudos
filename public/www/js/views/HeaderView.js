@@ -2,9 +2,10 @@ define([
   'jquery',
   'underscore',
   'backbone',
+  'marionette',
   'tpl!templates/header.html',
-], function($, _, Backbone,  headerTemplate){
-  var HeaderView = Backbone.Marionette.ItemView.extend({
+], function($, _, Backbone,  Marionette, headerTemplate){
+  var HeaderView = Marionette.ItemView.extend({
     events: {
         "click .js-back": "clickBack"
     },
