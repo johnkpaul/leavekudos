@@ -6,19 +6,9 @@ class KudosController < ApplicationController
   skip_before_filter :verify_authenticity_token
 
   def most_recent
-    token = cookies[:fsq_token]
-    foursq_client = FoursqWrapper.create_authenticated_client token
     # Iterate through each recent item to give a rich user
     # object back
-    kudos = Kudo.recent
-    kudos.each do |kudo|
-      user = foursq_client.user(kudo.foursquare_user_id)
-      # TODO cache this or something to reduce API hits
-      kudo.foursquare_username = user.firstName + " " + user.lastName
-      kudo.foursquare_avatar = user.photo
-    end
-    render json: kudos.as_json(:include => :employee, 
-                               :methods => [:foursquare_username, :foursquare_avatar])
+    render json: Kudo.recent.as_json(:include => :employee)
   end
 
   def by_venue
@@ -33,6 +23,7 @@ class KudosController < ApplicationController
     end
 
     kudo = Kudo.new(params[:kudo])
+    kudo.add_foursquare_fields cookies[:fsq_token]
     if kudo.save
       tweet_to_venue params[:kudo][:venue_id]
       render json: { kudo: kudo.as_json(:include => :employee) }

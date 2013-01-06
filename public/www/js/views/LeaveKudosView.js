@@ -27,7 +27,7 @@ define([
     },
     initialize:function(){
       this.kudos = new KudosModel();
-      var user_id = document.cookie.split(";").map(function(i){return i.split("=");}).filter(function(i){return i[0].trim() == "fsq_user_id"})[0][1];
+      var user_id = document.cookie.split(";").map(function(i){return i.split("=");}).filter(function(i){return i[0].trim() == "fsq_userid"})[0][1];
       this.kudos.set('venue_id', this.collection.venueId);
       this.kudos.set('foursquare_user_id', user_id);
       this.model.set('collection', this.collection.toJSON())
