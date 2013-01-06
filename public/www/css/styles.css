@@ -149,11 +149,13 @@ p.checkins-info {
   width: 90%;
 }
 
+.kudos-form .employees li {
+  width:100%;
+}
 #checkin-collection li, .kudos-form .employees li {
   position: relative;
   background: #ffffff;
   padding: 10px;
-  width:100%;
   border-bottom: 1px solid #dddddd;
   border-left: 1px solid #dddddd;
   border-right: 1px solid #dddddd;
