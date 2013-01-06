@@ -104,6 +104,9 @@ p.checkins-info {
   margin: 10px 0;
   position:relative;
 }
+#kudos li a {
+  color:#8BA553;
+}
 #kudos li blockquote {
   position:absolute;
   right:5px;
