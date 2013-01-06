@@ -3,6 +3,7 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.10'
 
 gem 'pg'
+gem 'devise'
 
 group :development do
   gem 'sqlite3'
