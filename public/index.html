@@ -6,9 +6,22 @@
       body {
         background: #dcdddf;
       }
+
       img {
         display: block;
         margin: 100px auto;
+      }
+
+      img.splash {
+        width: 80%;
+        max-width: 500px;
+        height: auto;
+      }
+
+      img.connect {
+        width: 60%;
+        max-width: 300px;
+        height: auto;
       }
     </style>
     <script type="text/javascript">
@@ -26,9 +39,9 @@
     </script>
   </head>
   <body>
-    <img src="splash.jpg" />
+    <img class="splash" src="www/imgs/splash.jpg" />
     <a href="/connect">
-      <img src="www/imgs/connect-button.png" />
+      <img class="connect" src="www/imgs/connect-button.png" />
     </a>
   </body>
 </html>
