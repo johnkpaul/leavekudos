@@ -28,5 +28,9 @@ require([
     oauthToken:'',
     username:''
   };
-  App.start(options);
+  if(document.cookie.indexOf('fsq_token') > 0) { 
+    App.start(options);
+  } else {
+    window.location.assign('/connect');
+  }
 });
