@@ -12,12 +12,18 @@
           <!--<th>What we think his or her name is</th>-->
           <th>Person</th>
           <th>Kudos Tally</th>
+          <th>Kudos Anecdotes</th>
         </tr>
         <% @employees.each do |employee| %>
           <tr>
             <!--<td><%= employee.name %></td> -->
             <td><%= employee.description %></td>
             <td><%= employee.kudos.count%></td>
+            <td>
+                <% employee.kudos.limit(3).each do |kudo| %>
+                    <blockquote><%= kudo.anecdote %></blockquote>
+                  <% end %>
+            </td>
           </tr>
         <% end %>
       <% else %>

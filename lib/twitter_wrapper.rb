@@ -15,7 +15,7 @@ class TwitterWrapper
     short_url = bitly.url
     Rails.logger.info "short url is: #{short_url}"
     handle = "johnkpaul"
-    message = "@#{handle} someone left kudos for #{kudo.employee.employee_desc}! #kudos info at #{short_url}"
+    message = "@#{handle} someone left kudos for #{kudo.employee.description}! #kudos info at #{short_url}"
 
     Rails.logger.info "unsent tweet message: #{message}"
 
