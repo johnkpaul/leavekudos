@@ -15,11 +15,13 @@ define([
       this.kudos.set('anecdote', anecdote);
       console.log(this.kudos.toJSON());
       console.log("submitting kudos");
-      this.kudos.save().then(function(){
-        require("app").router.controller.loadHome();
-        require("app").router.navigate("");
-
-      });
+      if(!this.submitting){
+        this.kudos.save().then(function(){
+          require("app").router.controller.loadHome();
+          require("app").router.navigate("");
+        });
+      }
+      this.submitting = true;
     },
     initialize:function(){
       this.kudos = this.model
