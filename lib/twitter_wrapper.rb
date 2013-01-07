@@ -15,7 +15,6 @@ class TwitterWrapper
     bitly = Bitly.shorten("http://www.leavekudos.com/venues/#{kudo.venue_id}", "johnkpaul", "R_f5b64ad86604a50d7d1c4d1cc96453af")
     short_url = bitly.url
     Rails.logger.info "short url is: #{short_url}"
-    handle = "johnkpaul"
     length_for_desc = 140 - 42 - handle.length - short_url.length
     description = truncate(kudo.employee.description, :length => length_for_desc)
     message = "@#{handle} someone left kudos for #{description}! #kudos info at #{short_url}"
