@@ -3,7 +3,8 @@ require 'foursq_wrapper'
 class Kudo < ActiveRecord::Base
 
   attr_accessible :foursquare_user_id, :employee, :employee_id, :venue_id, :anecdote, :created_at, :updated_at, 
-    :venue_notified, :foursquare_username, :foursquare_avatar, :foursquare_venue_name, :tweet_id, :tweet_text
+    :venue_notified, :foursquare_username, :foursquare_avatar, :foursquare_venue_name, :tweet_id, :tweet_text,
+    :foursquare_checkin_id
   
   validates_presence_of :foursquare_user_id, :employee, :venue_id
 
