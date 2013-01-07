@@ -34,6 +34,7 @@ define([
       var user_id = document.cookie.split(";").map(function(i){return i.split("=");}).filter(function(i){return i[0].trim() == "fsq_userid"})[0][1];
       this.kudos.set('venue_id', this.collection.venueId);
       this.kudos.set('foursquare_user_id', user_id);
+      this.kudos.set('foursquare_checkin_id', this.model.get('id'));
       this.model.set('collection', this.collection.toJSON())
     }
   });
