@@ -99,7 +99,7 @@ p.checkins-info {
   -webkit-border-radius: 12px;
   -moz-background-clip: padding; -webkit-background-clip: padding-box; background-clip: padding-box;
   border-radius:12px 12px;
-  padding: 10px 10px 20px 10px;
+  padding: 10px 10px 0px 10px;
   border: 1px solid #ced6ad;
   min-height: 52px;
   margin: 10px 0;
@@ -108,17 +108,12 @@ p.checkins-info {
 #kudos li a {
   color:#8BA553;
 }
-#kudos li blockquote {
-  position:absolute;
-  right:5px;
-  top:-3px;
-}
-@media all and (max-width: 480px){
     #kudos li blockquote {
       position:relative;
       width:100%;
       left:-60px;
     }
+@media all and (max-width: 480px){
 }
 
 #kudos li .kudo blockquote {
