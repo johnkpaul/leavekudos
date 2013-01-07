@@ -22,11 +22,13 @@
         pointer-events:none;
         cursor:normal;
         opacity:.2;
+        display:none;
       }
       .buttons{
         margin:auto;
         overflow:auto;
         width:95%;
+        text-align:center;:
       }
 .foursquare{}
 .copy p{text-align:center;font-size:120%;margin:0px;}
@@ -54,24 +56,25 @@
           width:50%;
           float:left;
       }
+@media all and (max-width: 480px){
+      #vid{
+          display:none;
+      }
+      #splash{
+          width:100%;
+          float:left;
+      }
+
+}
     </style>
   </head>
   <body>
     <div class="copy" style="text-align:center;">
-      <img src="/www/imgs/header-logo-beta.png" >
-      <p>Leave Kudos is devoted to recognizing excellent service at the places you visit everyday. Download our app &amp; start Leaving Kudos for stars in your daily life.</p>
-    </div>
-    <div id="splash">
-    </div>
-    <div id="vid">
-        
-        <div class="iphone">
-            <iframe src="http://player.vimeo.com/video/20580914" width="269" height="477" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-        </div>
+      <img src="/www/imgs/header-logo-beta.png" style="float:left;margin-right:20px;" >
+      <p class="mission">Leave Kudos is devoted to recognizing excellent service at the places you visit everyday. Download our app &amp; start Leaving Kudos for stars in your daily life.</p>
     </div>
     <div class="copy">
-      <p>Connect with foursquare and leave kudos now!</p>
-      <p>Mobile apps coming soon</p>
+      <p>Connect with foursquare and leave kudos now! Mobile apps coming soon</p>
     </div>
     <div class="buttons">
         <a href="#" class="disabled">
@@ -83,6 +86,14 @@
         <a href="#" class="disabled">
           <img class="connect" src="www/imgs/google_play_icon.png" />
         </a>
+    </div>
+    <div id="splash">
+    </div>
+    <div id="vid">
+        
+        <div class="iphone">
+            <iframe src="http://player.vimeo.com/video/20580914" width="269" height="477" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+        </div>
     </div>
     <script data-main="www/js/pre-login-main" src="www/js/libs/require/require.js"></script>
 <script type="text/javascript">
