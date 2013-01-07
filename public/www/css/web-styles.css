@@ -1,6 +1,9 @@
-table { margin-bottom: 200px;width: 100%;background:white;border:1px solid #ced6ad; border-radius:12px;padding:10px;} 
+table { margin-bottom: 200px;width: 100%;background:white;border:1px solid #ced6ad; border-radius:12px;padding:10px;
+border-collapse: collapse;
+} 
 table th { text-align: left; }
 table tr { border: 1px solid #ccc; }
+table td, table th{padding:10px;}
 h1 { margin: 10px auto; margin-bottom:.5em; }
 body { margin: 10px auto; }
 .address { 
