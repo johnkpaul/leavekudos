@@ -19,15 +19,16 @@ class TwitterWrapper
     description = truncate(kudo.employee.description, :length => length_for_desc)
     message = "@#{handle} someone left kudos for #{description}! #kudos info at #{short_url}"
 
-    Rails.logger.info "unsent tweet message: #{message}"
+    Rails.logger.info "Tweet message: #{message}"
 
     if Settings.tweeting.enabled
       begin
-        Rails.logger.info "tweeting."
+        Rails.logger.info "Sending tweet."
         tweet = Twitter.update(message)
         kudo.add_twitter_fields tweet
         kudo.save
       rescue Twitter::Error
+        Rails.logger.error "Tweet unsent"
         Rails.logger.error $!
       end
     end

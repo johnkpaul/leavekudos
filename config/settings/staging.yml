@@ -4,4 +4,4 @@ foursq_api:
   redirect_url: http://www.leavekudos.com/callback
 
 tweeting:
-  enabled: false
+  enabled: true
