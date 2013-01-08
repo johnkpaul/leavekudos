@@ -1,4 +1,4 @@
-require 'foursq_wrapper'
+require 'foursquare_wrapper'
 require 'twitter_wrapper'
 require 'bitly_wrapper'
 
@@ -40,11 +40,15 @@ class KudosController < ApplicationController
   private
 
   def tweet_to_venue(kudo)
-    logger.debug "Attempting to tweet to #{kudo.venue_id}"
-    venue = FoursqWrapper.venue(kudo.venue_id)
+    logger.debug "Attempting to tweet to venue #{kudo.venue_id}"
+    venue = FoursquareWrapper.venue(kudo.venue_id)
     if venue.contact.twitter 
       handle = venue.contact.twitter
-      TwitterWrapper.tweet_to_venue handle, kudo
+      bitly = BitlyWrapper.shorten("#{venues_detail_url(:venue_id => kudo.venue_id)}")
+      length_for_desc = 140 - 42 - handle.length - bitly.url.length
+      description = truncate(kudo.employee.description, :length => length_for_desc)
+      message = "@#{handle} someone left kudos for #{description}! #kudos info at #{bitly.url}"
+      TwitterWrapper.tweet message
     else
       logger.info "Venue #{kudo.venue_id} doesn't have a twitter handle."
     end
@@ -59,8 +63,8 @@ class KudosController < ApplicationController
     description = truncate(kudo.employee.description, :length => length_for_desc)
     message = "I left kudos for #{description}!"
 
-    FoursqWrapper.add_checkin_post(cookies[:fsq_token], 
-                                   { checkin_id:kudo.foursquare_checkin_id, 
+    FoursquareWrapper.add_checkin_post(cookies[:fsq_token], 
+                                   { checkin_id: kudo.foursquare_checkin_id, 
                                      text: message, 
                                      url: bitly.url})
   end

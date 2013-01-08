@@ -1,4 +1,4 @@
-require 'foursq_wrapper'
+require 'foursquare_wrapper'
 
 class Kudo < ActiveRecord::Base
 
@@ -15,11 +15,10 @@ class Kudo < ActiveRecord::Base
   scope :recent, order('created_at desc').limit(5)
 
   def add_foursquare_fields(token)
-    client = FoursqWrapper.create_authenticated_client(token)
-    user = client.user('self')
+    user = FoursquareWrapper.user(token, 'self')
     self.foursquare_username = "#{user.firstName} #{user.lastName}"
     self.foursquare_avatar = user.photo
-    self.foursquare_venue_name = client.venue(self.venue_id).name
+    self.foursquare_venue_name = FoursquareWrapper.venue(self.venue_id).name
   end
 
   def add_twitter_fields(tweet) 

@@ -4,6 +4,13 @@ twitter_api:
   token: 1060965092-3os8VZTlBEhpW69RTLyHCHohCqunZNSmF7jOz5S
   token_secret: ynKIStntbXpxd0dSLWT6M217PONhLg3QOUjIUWka7mU
 
+tweeting:
+  enabled: false
+
 bitly_api:
   user: johnkpaul
   key: R_f5b64ad86604a50d7d1c4d1cc96453af
+
+url_shortening:
+  enabled: false
+

@@ -11,7 +11,7 @@ Leavekudos::Application.routes.draw do
     resources :kudos
   end
 
-  match "/venues/:venue_id" => "venues#show"
+  match "/venues/:venue_id" => "venues#show", :as => :venues_detail
   match "/venues" => "venues#index"
 
   # oauth endpoints
