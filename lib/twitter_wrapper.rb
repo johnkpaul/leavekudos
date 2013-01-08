@@ -1,8 +1,10 @@
 require 'twitter'
-require 'ruby-bitly'
+require 'bitly_wrapper'
 
 class TwitterWrapper
+  # So we can use truncate()
   extend ActionView::Helpers::TextHelper
+
   def TwitterWrapper.tweet_to_venue(handle, kudo)
     # TODO This needs to only happen once?
     Twitter.configure do |config|
@@ -12,12 +14,10 @@ class TwitterWrapper
       config.oauth_token_secret = Settings.twitter_api.token_secret
     end
 
-    bitly = Bitly.shorten("http://www.leavekudos.com/venues/#{kudo.venue_id}", "johnkpaul", "R_f5b64ad86604a50d7d1c4d1cc96453af")
-    short_url = bitly.url
-    Rails.logger.info "short url is: #{short_url}"
-    length_for_desc = 140 - 42 - handle.length - short_url.length
+    bitly = BitlyWrapper.shorten("http://www.leavekudos.com/venues/#{kudo.venue_id}")
+    length_for_desc = 140 - 42 - handle.length - bitly.url.length
     description = truncate(kudo.employee.description, :length => length_for_desc)
-    message = "@#{handle} someone left kudos for #{description}! #kudos info at #{short_url}"
+    message = "@#{handle} someone left kudos for #{description}! #kudos info at #{bitly.url}"
 
     Rails.logger.info "Tweet message: #{message}"
 
@@ -28,7 +28,7 @@ class TwitterWrapper
         kudo.add_twitter_fields tweet
         kudo.save
       rescue Twitter::Error
-        Rails.logger.error "Tweet unsent"
+        Rails.logger.error "Tweet unsent:"
         Rails.logger.error $!
       end
     end

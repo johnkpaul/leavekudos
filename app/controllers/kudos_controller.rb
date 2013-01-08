@@ -1,9 +1,11 @@
 require 'foursq_wrapper'
 require 'twitter_wrapper'
-require 'ruby-bitly'
+require 'bitly_wrapper'
 
 class KudosController < ApplicationController
+  #So we can use truncate()
   include ActionView::Helpers::TextHelper
+
   skip_before_filter :verify_authenticity_token
 
   def most_recent
@@ -38,7 +40,7 @@ class KudosController < ApplicationController
   private
 
   def tweet_to_venue(kudo)
-    logger.debug "attempting to tweet to #{kudo.venue_id}"
+    logger.debug "Attempting to tweet to #{kudo.venue_id}"
     fsq_client = FoursqWrapper.create_client
     venue = fsq_client.venue(kudo.venue_id)
     if venue.contact.twitter 
@@ -50,16 +52,16 @@ class KudosController < ApplicationController
   end
 
   def post_to_checkin(kudo)
-    logger.debug "attempting to post to foursqare checkin"
-    fsq_client = FoursqWrapper.create_authenticated_client cookies[:fsq_token]
+    logger.debug "Attempting to post to foursqare checkin"
+    #TODO probably not good
+    bitly = BitlyWrapper.shorten("#{request.protocol}#{request.host_with_port}#/venues/#{kudo.venue_id}")
 
-    bitly = Bitly.shorten("http://www.leavekudos.com/venues/#{kudo.venue_id}", "johnkpaul", "R_f5b64ad86604a50d7d1c4d1cc96453af")
-    short_url = bitly.url
-    Rails.logger.info "short url is: #{short_url}"
-    length_for_desc = 200 - 42 - short_url.length
+    length_for_desc = 200 - 42 - bitly.url.length
     description = truncate(kudo.employee.description, :length => length_for_desc)
     message = "I left kudos for #{description}!"
-    fsq_client.add_checkin_post(kudo.foursquare_checkin_id, {text: message, url: short_url })
+
+    fsq_client = FoursqWrapper.create_authenticated_client cookies[:fsq_token]
+    fsq_client.add_checkin_post(kudo.foursquare_checkin_id, {text: message, url: bitly.url})
   end
 
 end

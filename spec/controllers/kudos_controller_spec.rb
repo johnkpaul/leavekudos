@@ -32,14 +32,30 @@ describe KudosController do
     subject { 
       request.cookies['fsq_token'] = 'dummy_access_token'
 
+      # Stub out foursquare API calls
       dummy_fsq_client = double(Foursquare2::Client)
       dummy_fsq_client.stub(:user) { 
+        puts "Dummy call to foursquare/user"
         OpenStruct.new  firstName: "FirstTest", lastName: "LastTest", photo: "http://example.com/avatar.jpg" 
       }
       dummy_fsq_client.stub(:venue) {
-        OpenStruct.new  name: "Test Venue"
+        contact = OpenStruct.new  twitter: "dummy_twitter_handle" 
+        puts "Dummy call to foursquare/venue"
+        OpenStruct.new  name: "Test Venue", contact: contact 
+      }
+      dummy_fsq_client.stub(:add_checkin_post) {
+        puts "Dummy call to foursquare/add_checkin_post"
+        true
       }
       FoursqWrapper.stub(:create_authenticated_client) { dummy_fsq_client }
+      FoursqWrapper.stub(:create_client) { dummy_fsq_client }
+
+      # Stub out bitly API calls
+      BitlyWrapper.stub(:shorten) {
+        puts "Dummy call to bitly/shorten"
+        OpenStruct.new url: "example.com/shortened"
+      }
+
       post :create, kudo: kudo_parameters 
     }
     let(:kudo_parameters) {
