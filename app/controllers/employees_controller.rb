@@ -4,5 +4,4 @@ class EmployeesController < ApplicationController
     render json: Employee.where(venue_id: params[:venue_id])
   end
 
-
 end
