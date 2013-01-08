@@ -47,8 +47,8 @@ describe KudosController do
         puts "Dummy call to foursquare/add_checkin_post"
         true
       }
-      FoursqWrapper.stub(:create_authenticated_client) { dummy_fsq_client }
-      FoursqWrapper.stub(:create_client) { dummy_fsq_client }
+      FoursquareWrapper.stub(:create_authenticated_client) { dummy_fsq_client }
+      FoursquareWrapper.stub(:create_client) { dummy_fsq_client }
 
       # Stub out bitly API calls
       BitlyWrapper.stub(:shorten) {

@@ -57,7 +57,7 @@ class KudosController < ApplicationController
   def post_to_checkin(kudo)
     logger.debug "Attempting to post to foursqare checkin"
     #TODO probably not good
-    bitly = BitlyWrapper.shorten("#{request.protocol}#{request.host_with_port}#/venues/#{kudo.venue_id}")
+    bitly = BitlyWrapper.shorten("#{venues_detail_url(:venue_id => kudo.venue_id)}")
 
     length_for_desc = 200 - 42 - bitly.url.length
     description = truncate(kudo.employee.description, :length => length_for_desc)
