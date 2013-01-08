@@ -41,8 +41,7 @@ class KudosController < ApplicationController
 
   def tweet_to_venue(kudo)
     logger.debug "Attempting to tweet to #{kudo.venue_id}"
-    fsq_client = FoursqWrapper.create_client
-    venue = fsq_client.venue(kudo.venue_id)
+    venue = FoursqWrapper.venue(kudo.venue_id)
     if venue.contact.twitter 
       handle = venue.contact.twitter
       TwitterWrapper.tweet_to_venue handle, kudo
@@ -60,8 +59,10 @@ class KudosController < ApplicationController
     description = truncate(kudo.employee.description, :length => length_for_desc)
     message = "I left kudos for #{description}!"
 
-    fsq_client = FoursqWrapper.create_authenticated_client cookies[:fsq_token]
-    fsq_client.add_checkin_post(kudo.foursquare_checkin_id, {text: message, url: bitly.url})
+    FoursqWrapper.add_checkin_post(cookies[:fsq_token], 
+                                   { checkin_id:kudo.foursquare_checkin_id, 
+                                     text: message, 
+                                     url: bitly.url})
   end
 
 end
