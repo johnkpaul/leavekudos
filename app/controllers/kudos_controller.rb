@@ -41,6 +41,12 @@ class KudosController < ApplicationController
     @kudo = Kudo.find_by_id(params[:kudo_id])
     @employee = Employee.find_by_id(@kudo.employee_id)
     @venue = FoursquareWrapper.venue(@kudo.venue_id)
+
+    respond_to do |format|
+      format.html
+      format.json { render json: { kudo: @kudo }} 
+    end
+
   end
 
   private

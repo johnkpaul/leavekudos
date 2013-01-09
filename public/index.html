@@ -3,108 +3,29 @@
   <head>
     <title>Leave Kudos</title>
     <meta name="viewport" content="width=device-width,initial-scale=1">
-    <link rel="stylesheet" href="www/css/styles.css">
-    <style type="text/css" media="screen">
-      body {
-        background: #EEF8C8;
-      }
-      #about { 
-        width: 75%;
-        margin: 30px auto;
-      }
-      #kudos {
-        margin-bottom:0px;
-      }
-
-      .buttons a{
-        width: 100%;
-        display:block;
-        float:left;
-        padding-right:10px;
-      }
-      a.disabled{
-        pointer-events:none;
-        cursor:normal;
-        opacity:.2;
-        display:none;
-      }
-      .buttons{
-        margin:auto;
-        overflow:auto;
-        width:95%;
-      }
-      .mission{
-       color:#47D05D;
-       background:white;
-       border-radius:12px;
-       padding:12px;
-      }
-.foursquare{margin-top:5px;display:block;}
-.copy p{text-align:center;font-size:120%;margin:0px;}
-.copy{padding:10px 0px;width:80%;margin:auto;overflow:auto;}
-      img.connect {
-          width:100%;
-      }
-      #vid{
-          width:50%;
-          float:left;
-      }
-      .iphone{
-          position:relative;
-          background:url(/www/imgs/iphone_shell.png) no-repeat 0px 0px;
-          width:369px;
-          height:715px;
-          margin:auto;
-      }
-      .iphone iframe{
-          position:absolute;
-        top:119px;
-        left:17px;
-      }
-      #splash{
-          width:50%;
-          float:left;
-      }
-.logo{float:left;margin-right:20px;margin-top:16px;}
-@media all and (max-width: 480px){
-      #vid{
-          display:none;
-      }
-      #splash{
-          width:100%;
-          float:left;
-      }
-      .foursquare img{width:80%;}
-.logo{margin:auto;float:none;}
-
-}
-    </style>
+    <link rel="stylesheet" href="www/css/styles.css" type="text/css">
+    <link rel="stylesheet" href="www/css/homepage.css" type="text/css">
   </head>
   <body>
     <div class="copy" style="text-align:center;">
       <img src="/www/imgs/header-logo-beta.png" class="logo">
-      <p class="mission">devoted to recognizing excellent service at the places you visit everyday. Download our app &amp; start Leaving Kudos for stars in your daily life.</p>
     </div>
     <div class="copy" style="text-align:center;">
-      <p>Connect with foursquare and leave kudos now! Mobile apps coming soon</p>
-    <a href="/connect" class="foursquare">
-      <img src="www/imgs/connect-button.png" />
-    </a>
+      <p class="mission">LeaveKudos lets you recognize excellent service at the places you visit everyday.</br>
+        Start Leaving Kudos for stars in your daily life!
+      </p>
+      <a href="/connect" class="foursquare">
+        <img src="www/imgs/connect-button.png" />
+      </a>
     </div>
-    <div class="buttons">
-        <a href="#" class="disabled">
-          <img class="connect" src="www/imgs/app_store_icon.png" />
-        </a>
-        <a href="#" class="disabled">
-          <img class="connect" src="www/imgs/google_play_icon.png" />
-        </a>
-    </div>
-    <div id="splash">
-    </div>
-    <div id="vid">
+    <div id="homepage-container">
+      <div id="splash">
+      </div>
+      <div id="vid">
         <div class="iphone">
-            <iframe src="http://player.vimeo.com/video/56889295" width="335" height="503" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>	
+          <iframe src="http://player.vimeo.com/video/56889295" width="335" height="503" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>	
         </div>
+      </div>
     </div>
     <div id="about">
       <p>This project was created during the <a href="https://www.hackerleague.org/hackathons/foursquare-hackathon-2013/hacks/leave-kudos">foursquare 2013 hackathon</a>. It was created by

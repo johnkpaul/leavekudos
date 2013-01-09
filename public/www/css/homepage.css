@@ -1,0 +1,118 @@
+body {
+  background:#EEF8C8;
+}
+
+#about {
+  width:75%;
+  margin:30px auto;
+}
+
+#kudos {
+  margin-bottom:0;
+}
+
+.buttons a {
+  width:100%;
+  display:block;
+  float:left;
+  padding-right:10px;
+}
+
+a.disabled {
+  pointer-events:none;
+  cursor:normal;
+  opacity:.2;
+  display:none;
+}
+
+.buttons {
+  margin:auto;
+  overflow:auto;
+  width:95%;
+}
+
+.mission {
+  color:#47D05D;
+  background:#FFF;
+  padding:12px;
+  font-weight: 400; 
+}
+
+.foursquare {
+  margin-top:5px;
+  display:inline-block;
+}
+
+.copy p {
+  text-align:center;
+  font-size:120%;
+  margin:0;
+}
+
+.copy {
+  padding:10px 0;
+  width:80%;
+  margin:auto;
+  overflow:auto;
+}
+
+img.connect {
+  width:100%;
+}
+
+#vid {
+  width:50%;
+  float:left;
+}
+
+.iphone {
+  position:relative;
+  background:url(/www/imgs/iphone_shell.png) no-repeat 0 0;
+  width:369px;
+  height:715px;
+  margin:auto;
+}
+
+.iphone iframe {
+  position:absolute;
+  top:119px;
+  left:17px;
+}
+
+#splash {
+  width:50%;
+  float:left;
+  padding-left:1em;
+}
+
+.logo {
+  float:left;
+  margin-right:20px;
+  margin-top:16px;
+}
+
+#homepage-container:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+@media all and max-width 480px {
+  #vid {
+    display:none;
+  }
+
+  #splash {
+    width:100%;
+    float:left;
+  }
+
+  .foursquare img {
+    width:80%;
+  }
+
+  .logo {
+    margin:auto;
+    float:none;
+  }
+}
