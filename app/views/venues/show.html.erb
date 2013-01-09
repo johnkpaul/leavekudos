@@ -1,6 +1,6 @@
 <div id="container">
   <div id="header">
-      <a href="/"><img src="/www/imgs/header-logo-beta.png"/></a>
+    <a href="/"><img src="/www/imgs/header-logo-beta.png"/></a>
   </div>
   <div id="page">
     <h1><%= @venue.name %></h1>
@@ -20,9 +20,9 @@
             <td><%= employee.description %></td>
             <td><%= employee.kudos.count%></td>
             <td>
-                <% employee.kudos.limit(3).each do |kudo| %>
-                    <blockquote><%= kudo.anecdote %></blockquote>
-                  <% end %>
+              <% employee.kudos.limit(3).each do |kudo| %>
+                <blockquote><%= kudo.anecdote %></blockquote>
+              <% end %>
             </td>
           </tr>
         <% end %>
@@ -32,6 +32,7 @@
       <% end %>
     </table>
   </div>
-<a id="leave-kudos" href="/www#checkins" >
-  <img class="js-load-route" src="/www/imgs/leave-kudos.png" />
-</a>
+  <a id="leave-kudos" href="/www#checkins" >
+    <img class="js-load-route" src="/www/imgs/leave-kudos.png" />
+  </a>
+</div>

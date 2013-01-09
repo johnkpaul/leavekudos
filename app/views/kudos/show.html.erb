@@ -1,0 +1,17 @@
+<div id="container">
+  <div id="header">
+    <a href="/"><img src="/www/imgs/header-logo-beta.png"/></a>
+  </div>
+  <div id="page">
+    <h1>Kudos!</h1>
+    <p><%= @kudo.foursquare_username %> left some kudos for <em><%= @employee.description %></em>
+      at <%= link_to @kudo.foursquare_venue_name, venues_detail_path(:venue_id => @kudo.venue_id) %>
+    </p>
+    <% unless @kudo.anecdote.empty? %>
+      <blockquote><%= @kudo.anecdote %></blockquote>
+    <% end %>
+  </div>
+  <a id="leave-kudos" href="/www#checkins" >
+    <img class="js-load-route" src="/www/imgs/leave-kudos.png" />
+  </a>
+</div>

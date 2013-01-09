@@ -37,6 +37,12 @@ class KudosController < ApplicationController
     end
   end
 
+  def show
+    @kudo = Kudo.find_by_id(params[:kudo_id])
+    @employee = Employee.find_by_id(@kudo.employee_id)
+    @venue = FoursquareWrapper.venue(@kudo.venue_id)
+  end
+
   private
 
   def tweet_to_venue(kudo)
