@@ -6,8 +6,7 @@ define([
   'views/layouts/default',
   'router', 
   'views/HeaderView', 
-  'marionette',
-  'backbone-touch',
+  'marionette'
 ], function($, _, Backbone, DefaultLayout, Router, HeaderView, Marionette){
 
   var App = window.App = new Marionette.Application();
