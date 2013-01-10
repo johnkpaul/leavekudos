@@ -56,7 +56,7 @@ class KudosController < ApplicationController
     venue = FoursquareWrapper.venue(kudo.venue_id)
     if venue.contact.twitter 
       handle = venue.contact.twitter
-      bitly = BitlyWrapper.shorten("#{venues_detail_url(:venue_id => kudo.venue_id)}")
+      bitly = BitlyWrapper.shorten("#{kudos_detail_url(:kudo_id => kudo.id)}")
       length_for_desc = 140 - 42 - handle.length - bitly.url.length
       description = truncate(kudo.employee.description, :length => length_for_desc)
       message = "@#{handle} someone left kudos for #{description}! #kudos info at #{bitly.url}"
@@ -68,8 +68,7 @@ class KudosController < ApplicationController
 
   def post_to_checkin(kudo)
     logger.debug "Attempting to post to foursqare checkin"
-    #TODO probably not good
-    bitly = BitlyWrapper.shorten("#{venues_detail_url(:venue_id => kudo.venue_id)}")
+    bitly = BitlyWrapper.shorten("#{kudos_detail_url(:kudo_id => kudo.id)}")
 
     length_for_desc = 200 - 42 - bitly.url.length
     description = truncate(kudo.employee.description, :length => length_for_desc)
