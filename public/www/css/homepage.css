@@ -97,7 +97,7 @@ img.connect {
   clear: both;
 }
 
-@media all and max-width 480px {
+@media all and (max-width: 480px) {
   #vid {
     display:none;
   }
