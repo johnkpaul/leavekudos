@@ -11,8 +11,8 @@ if Rails.env.development?
   ryan = Employee.find_or_create_by_name('Ryan Juang', venue_id: 123, description: "Wears shirts. Sometimes.")
   john = Employee.find_or_create_by_name('John Paul', venue_id: 123, description: "Indian guy with giant beard.")
   ben = Employee.find_or_create_by_name('Ben Burton', venue_id: 123, description: "White boy with Macbook Pro connected at hip.")
-  Kudo.find_or_create_by_anecdote!("Great Service", foursquare_user_id: 41573486, venue_id: 123, employee: ryan)
-  Kudo.find_or_create_by_anecdote!("So helpful", foursquare_user_id: 41573486, venue_id: 123, employee: john)
-  Kudo.find_or_create_by_anecdote!("Amazing help", foursquare_user_id: 41573486, venue_id: 123, employee: john)
-  Kudo.find_or_create_by_anecdote!("Really patient", foursquare_user_id: 41573486, venue_id: 123, employee: ben)
+  Kudo.find_or_create_by_anecdote!("Great Service", foursquare_user_id: 41573486, foursquare_venue_name: "Some foursquare venue", venue_id: 123, employee: ryan)
+  Kudo.find_or_create_by_anecdote!("So helpful", foursquare_user_id: 41573486, foursquare_venue_name: "Some foursquare venue", venue_id: 123, employee: john)
+  Kudo.find_or_create_by_anecdote!("Amazing help", foursquare_user_id: 41573486, foursquare_venue_name: "Some foursquare venue", venue_id: 123, employee: john)
+  Kudo.find_or_create_by_anecdote!("Really patient", foursquare_user_id: 41573486, foursquare_venue_name: "Some foursquare venue", venue_id: 123, employee: ben)
 end
