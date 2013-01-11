@@ -3,8 +3,6 @@ source 'https://rubygems.org'
 gem 'rails', '3.2.11'
 
 gem 'pg'
-gem 'devise'
-gem 'ruby-bitly'
 
 group :development do
   gem 'sqlite3'
@@ -28,8 +26,9 @@ end
 
 gem 'jquery-rails'
 
-gem "rails_config"
-gem "foursquare2"
-gem "oauth2"
-gem "twitter"
-
+gem 'rails_config'
+gem 'foursquare2'
+gem 'oauth2'
+gem 'twitter'
+gem 'devise'
+gem 'ruby-bitly'

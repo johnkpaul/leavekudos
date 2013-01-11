@@ -18,8 +18,15 @@ test:
   pool: 5
   timeout: 5000
 
+
+# These credentials are specific to webfaction
+# Heroku uses the DATABASE_URL environment variable,
+# not the ones define below.
 production:
-  adapter: sqlite3
-  database: db/production.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: leavekudos_test
+  username: leavekudos_test
+  password: le@vekud0s
   pool: 5
   timeout: 5000

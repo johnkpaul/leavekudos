@@ -1,3 +1,8 @@
+foursquare_api:
+  id: D0ZFMGQIMLGQFEO1XH5X3PSX1XNYHSXFNNAZYUWW0AKGZN2G
+  secret: 4ZA303OWTNOOQHPEBSEP2YJKCG5EQOTD3R0UYNF4VVRISXWI
+  redirect_url: http://localhost:3000/callback
+
 twitter_api:
   key: uwHnBH7vznFKpATuVBZpw
   secret: GsahfiSIXaK0ag6IkDQfPCYANZYJvGPzsh51FWsqzA
