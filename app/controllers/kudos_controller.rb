@@ -7,6 +7,7 @@ class KudosController < ApplicationController
   include ActionView::Helpers::TextHelper
 
   skip_before_filter :verify_authenticity_token
+  after_filter :set_access_control_headers
 
   def most_recent
     render json: Kudo.recent.as_json(:include => :employee)
@@ -80,4 +81,8 @@ class KudosController < ApplicationController
                                      url: bitly.url})
   end
 
+  def set_access_control_headers 
+      headers['Access-Control-Allow-Origin'] = '*' 
+      headers['Access-Control-Request-Method'] = '*' 
+  end
 end
