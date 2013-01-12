@@ -5,10 +5,12 @@ Leavekudos::Application.routes.draw do
     match "kudos" => "kudos#create", :via => :post
     match "kudos/:kudo_id" => "kudos#show", :via => :get
 
-    match "venue/:venue_id/employees" => "employees#show"
-    match "venue/:venue_id/kudos" => "kudos#by_venue"
+    match "venue/:venue_id/employees" => "employees#show", :via => :get
+    match "venue/:venue_id/kudos" => "kudos#by_venue", :via => :get
 
-    match "checkins" => "foursq_passthrough#checkins"
+    match "push/checkin" => "push#checkin", :via => :post
+
+    match "checkins" => "foursq_passthrough#checkins", :via => :get
     resources :kudos
   end
 
