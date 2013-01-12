@@ -9,6 +9,7 @@ class PushController < ApplicationController
   def checkin
     logger.info "Received POST from foursquare push API"
     logger.info  params
+    render :nothing => true
   end
 
 end
