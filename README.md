@@ -2,7 +2,7 @@
 
 Leave Kudos lets you leave feedback for the employees who help you at various venues. Have good service at a diner? Leave a nice note about the waitress! Did she spit in your coffee? Leave a negative remark.
 
-## Setup
+## Setup api server
 
     git clone git@github.com:johnkpaul/leavekudos.git
     cd leavekudos
@@ -11,6 +11,12 @@ Leave Kudos lets you leave feedback for the employees who help you at various ve
     rake db:migrate
     rails s
 
+## Setup static server
+
+    npm install yeoman -g
+    git clone git@github.com:johnkpaul/leavekudos.git
+    cd leavekudos/public/www
+    yeoman server
 
 ## Testing
 
