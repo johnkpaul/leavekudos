@@ -1,0 +1,12 @@
+<img src="<%= foursquare_avatar %>" />
+<div class="kudo">
+  <span class="user"><%= foursquare_username %></span><em>left kudos for </em>
+  <p><%= employee.name == null ? employee.description : employee.name %> at 
+                <a href="/venues/<%= venue_id %>"><%= foursquare_venue_name %></a></p>
+  <% if(tweet_id) { %>
+    <a href="http://twitter.com/LeaveKudos/status/<%= tweet_id %>" target="_blank">Tweet @ <%= foursquare_venue_name %></a>
+  <% } %>
+  <% if(anecdote) { %>
+    <blockquote><%= anecdote %></blockquote>
+  <% } %>
+</div>
