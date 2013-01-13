@@ -9,6 +9,7 @@ define([
     var MyRouter = Backbone.Marionette.AppRouter.extend({
       controller: mainController,
       appRoutes: {
+        "": "loadRoot",
         "home": "loadHome",
         "checkins": "loadCheckins"
       }

@@ -46,6 +46,14 @@ define([
         require("app").mainRegion.show(kudosView);
         require("app").headerRegion.currentView.hideBack()
       });
+    },
+    loadRoot:function(){
+      var kudosCollection = new KudosCollection();
+      kudosCollection.fetch().then(function(){
+        console.log('root');
+        var kudosView = new KudosView({collection:kudosCollection});
+        require("app").mainRegion.show(kudosView);
+      });
     }
   }
   _.each(mainController, function(value, key, controller) {
