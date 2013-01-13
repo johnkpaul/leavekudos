@@ -8,3 +8,6 @@ tweeting:
 
 url_shortening:
   enabled: true 
+
+static_app_base_url: http://www.leavekudos.com/www/app
+  

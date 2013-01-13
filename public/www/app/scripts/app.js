@@ -42,6 +42,11 @@ define([
 
   App.on("initialize:before", function(options){
         App.baseUrl = options.baseUrl;
+        $.ajaxPrefilter( function( options, originalOptions, jqXHR ) {
+          options.xhrFields = {
+            withCredentials: true
+          };
+        });
   });
 
   return App;

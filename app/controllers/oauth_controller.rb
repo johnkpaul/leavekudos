@@ -21,11 +21,14 @@ class OauthController < ApplicationController
     logger.debug "Handling callback for #{params[:code]}"
     access_token = oauth2_client.auth_code.get_token(params[:code], 
                                                     :redirect_uri => Settings.foursquare_api.redirect_url)
-    cookies[:fsq_token] = access_token.token
+    params_hash = {}
+    params_hash[:fsq_token] = access_token.token
     foursq_user = FoursquareWrapper.user(access_token.token,'self')
     User.find_or_create_by_foursquare_user_id!(foursq_user.user_id, foursquare_user_hash: foursq_user.to_hash)
-    cookies[:fsq_userid] = foursq_user.id
+    params_hash[:fsq_userid] = foursq_user.id
     logger.info "Connected with user #{foursq_user.id}"
-    redirect_to '/www/app'
+    redirect_url = Settings.static_app_base_url + '/?' + params_hash.to_query
+    logger.debug("redirecting to #{redirect_url}")
+    redirect_to redirect_url
   end
 end
