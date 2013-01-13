@@ -21,3 +21,4 @@ config/environments/*.local.yml
 
 public/www/.sass-cache
 public/www/temp
+public/www/dist
