@@ -6,14 +6,20 @@ define([
   'views/layouts/default',
   'router', 
   'views/HeaderView', 
+  'util/cookie', 
+  'util/queryParse', 
   'marionette'
-], function($, _, Backbone, DefaultLayout, Router, HeaderView, Marionette){
+], function($, _, Backbone, DefaultLayout, Router, HeaderView, Cookie, queryParse, Marionette){
 
   var App = window.App = new Marionette.Application();
 
   var Router = App.router = new Router();
   App.addInitializer(function(options){
-    Backbone.history.start();
+    Backbone.history.start({pushState: true});
+    if (window.location.search) {
+      setCookies();
+      Backbone.history.navigate("home", {trigger:true});
+    }
   });
 
   App.addInitializer(function(options){
@@ -48,6 +54,15 @@ define([
           };
         });
   });
+
+  function setCookies(){
+    if (window.location.search){
+       var query = queryParse(window.location.search);
+       _.each(query, function(value, key){
+          Cookie.create(key, value);
+       });
+    }
+  }
 
   return App;
 });

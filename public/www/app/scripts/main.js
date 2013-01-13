@@ -32,9 +32,5 @@ require([
     baseUrl:isDev ? "http://localhost:3000" : "http://www.leavekudos.com"
   };
 
-  if(document.cookie.indexOf('fsq_token') > -1) { 
-    App.start(options);
-  } else {
-    window.location.assign('/connect');
-  }
+  App.start(options);
 });
