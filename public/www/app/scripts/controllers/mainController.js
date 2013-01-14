@@ -7,10 +7,11 @@ define([
   'views/CheckinCollectionView',
   'views/LeaveKudosView',
   'views/LastKudosView',
+  'views/RootView',
   'collections/kudos/KudosCollection',
   'collections/CheckinCollection',
   'collections/EmployeeCollection',
-], function($, _, Backbone, KudosView, CheckinCollectonView, SelectEmployeeView, LastKudosView, KudosCollection, 
+], function($, _, Backbone, KudosView, CheckinCollectonView, SelectEmployeeView, LastKudosView, RootView, KudosCollection, 
                  CheckinCollection, EmployeeCollection) {
   
   var mainController = {
@@ -50,9 +51,11 @@ define([
     loadRoot:function(){
       var kudosCollection = new KudosCollection();
       kudosCollection.fetch().then(function(){
-        console.log('root');
         var kudosView = new KudosView({collection:kudosCollection});
-        require("app").mainRegion.show(kudosView);
+        var rootView = new RootView();
+        require("app").mainRegion.show(rootView);
+        $("#splash").empty().html(kudosView.render().$el)
+        $("#leave-kudos").hide();
       });
     }
   }

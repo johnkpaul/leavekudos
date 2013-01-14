@@ -14,8 +14,15 @@ define([
   var App = window.App = new Marionette.Application();
 
   var Router = App.router = new Router();
+
   App.addInitializer(function(options){
-    Backbone.history.start({pushState: true});
+    if (options.isDev) {
+      Backbone.history.start({pushState: true});
+    }
+    else {
+      Backbone.history.start({pushState: true, root: '/www/app/'});
+    }
+   
     if (window.location.search) {
       setCookies();
       Backbone.history.navigate("home", {trigger:true});
