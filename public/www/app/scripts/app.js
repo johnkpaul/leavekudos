@@ -17,10 +17,10 @@ define([
 
   App.addInitializer(function(options){
     if (options.isDev) {
-      Backbone.history.start({pushState: true});
+      Backbone.history.start({pushState: false});
     }
     else {
-      Backbone.history.start({pushState: true, root: '/www/app/'});
+      Backbone.history.start({pushState: false, root: '/www/app/'});
     }
    
     if (window.location.search) {
