@@ -67,7 +67,7 @@ img.connect {
 
 .iphone {
   position:relative;
-  background:url(/imgs/iphone_shell.png) no-repeat 0 0;
+  background:url(../imgs/iphone_shell.png) no-repeat 0 0;
   width:369px;
   height:715px;
   margin:auto;

@@ -25,6 +25,9 @@ define([
    
     if (window.location.search) {
       setCookies();
+    }
+
+    if (document.cookie) {
       Backbone.history.navigate("home", {trigger:true});
     }
   });

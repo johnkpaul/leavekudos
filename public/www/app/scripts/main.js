@@ -29,6 +29,7 @@ require([
     oauthToken:'',
     username:'', 
     mode:isDev ? "DEV" : "PROD",
+    isDev:isDev,
     baseUrl:isDev ? "http://localhost:3000" : "http://www.leavekudos.com"
   };
 
