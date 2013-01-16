@@ -7,16 +7,30 @@ describe KudosController do
   let(:employee) { FactoryGirl.create(:employee, name: 'Ben Burton') }
   let(:venue_id) { 1 }
 
-  describe "GET most_recent" do
-    subject { 
-      get :most_recent 
-    }
+  # Shared_example for checking CORS headers
+  # Why can't I just define it up here?
+  # In all the examples I've seen so far, shared_examples_for just
+  # needs to be defined *before* any thing else. I think 'requiring'
+  # is essentially the same thing, right?
+  shared_examples_for "a CORS response" do
+    it "should have CORS headers" do
+      headers["Access-Control-Allow-Origin"].should eq "*"
+      headers["Access-Control-Request-Method"].should eq "*"
+    end
+  end
+
+  describe "GET most_recent", :only=>true do
+     before(:each) do
+       get :most_recent 
+     end
 
     it "should return most recent kudos" do
-      subject
-      response.body.should include kudo.anecdote
+      @response.body.should include kudo.anecdote
     end
 
+    it_should_behave_like "a CORS response" do
+      let(:headers) { @response.headers }
+    end
   end
 
   describe "GET by_venue" do
@@ -26,6 +40,7 @@ describe KudosController do
       subject
       response.body.should include kudo.anecdote
     end
+
   end
 
   describe "POST create" do
@@ -73,6 +88,8 @@ describe KudosController do
       expect { subject }.to change { Kudo.count }.by 1
     end
 
+    #it_should_behave_like "a CORS response", response.headers
+
     context "missing employee" do
       let(:employee_id) { 404 }
 
@@ -80,6 +97,9 @@ describe KudosController do
         subject
         response.body.should include "Employee can't be blank"
       end
+
+      #it_should_behave_like "a CORS response", response.headers
+
     end
 
     context "missing foursquare user" do
@@ -88,6 +108,9 @@ describe KudosController do
         subject
         response.body.should include "Foursquare user can't be blank"
       end
+
+      #it_should_behave_like "a CORS response", response.headers
+
     end
 
     context "missing venue" do
@@ -96,6 +119,8 @@ describe KudosController do
         subject
         response.body.should include "Venue can't be blank"
       end
+
+      #it_should_behave_like "a CORS response", response.headers
     end
 
     context "with a new employee" do
@@ -120,6 +145,8 @@ describe KudosController do
       it "should create a new kudo" do
         expect { subject }.to change { Kudo.count }.by 1
       end
+
+      #it_should_behave_like "a CORS response", response.headers
 
     end
 

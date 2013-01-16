@@ -1,13 +1,17 @@
 require 'foursquare_wrapper'
 require 'twitter_wrapper'
 require 'bitly_wrapper'
+require 'allow_cors'
 
 class KudosController < ApplicationController
+
   #So we can use truncate()
   include ActionView::Helpers::TextHelper
+  #So we can use set_cors_headers()
+  include AllowCors
 
   skip_before_filter :verify_authenticity_token
-  after_filter :set_access_control_headers
+  after_filter :set_cors_headers
 
   def most_recent
     render json: Kudo.recent.as_json(:include => :employee)
@@ -81,8 +85,4 @@ class KudosController < ApplicationController
                                      url: bitly.url})
   end
 
-  def set_access_control_headers 
-      headers['Access-Control-Allow-Origin'] = '*' 
-      headers['Access-Control-Request-Method'] = '*' 
-  end
 end
