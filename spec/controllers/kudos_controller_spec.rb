@@ -25,11 +25,12 @@ describe KudosController do
      end
 
     it "should return most recent kudos" do
-      @response.body.should include kudo.anecdote
+      response.body.should include kudo.anecdote
     end
 
-    it_should_behave_like "a CORS response" do
-      let(:headers) { @response.headers }
+    it "should have CORS headers" do
+      response.headers["Access-Control-Allow-Origin"].should eq "*"
+      response.headers["Access-Control-Request-Method"].should eq "*"
     end
   end
 
@@ -39,6 +40,12 @@ describe KudosController do
     it "should return kudos for the venue" do
       subject
       response.body.should include kudo.anecdote
+    end
+
+    it "should have CORS headers" do
+      subject
+      response.headers["Access-Control-Allow-Origin"].should eq "*"
+      response.headers["Access-Control-Request-Method"].should eq "*"
     end
 
   end
@@ -89,6 +96,11 @@ describe KudosController do
     end
 
     #it_should_behave_like "a CORS response", response.headers
+    it "should have CORS headers" do
+      subject
+      response.headers["Access-Control-Allow-Origin"].should eq "*"
+      response.headers["Access-Control-Request-Method"].should eq "*"
+    end
 
     context "missing employee" do
       let(:employee_id) { 404 }
@@ -97,8 +109,6 @@ describe KudosController do
         subject
         response.body.should include "Employee can't be blank"
       end
-
-      #it_should_behave_like "a CORS response", response.headers
 
     end
 
@@ -109,8 +119,6 @@ describe KudosController do
         response.body.should include "Foursquare user can't be blank"
       end
 
-      #it_should_behave_like "a CORS response", response.headers
-
     end
 
     context "missing venue" do
@@ -120,7 +128,6 @@ describe KudosController do
         response.body.should include "Venue can't be blank"
       end
 
-      #it_should_behave_like "a CORS response", response.headers
     end
 
     context "with a new employee" do
@@ -145,8 +152,6 @@ describe KudosController do
       it "should create a new kudo" do
         expect { subject }.to change { Kudo.count }.by 1
       end
-
-      #it_should_behave_like "a CORS response", response.headers
 
     end
 
