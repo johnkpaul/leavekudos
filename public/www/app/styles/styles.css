@@ -4,6 +4,7 @@ body {
   padding: 0;
   margin: 0;
   background: #eef8c8;
+  position:relative;
 }
 
 ul {
@@ -254,7 +255,7 @@ p.checkins-info {
 #leave-kudos {
   background: #9ea584;
   padding: 10px 0;
-  position: fixed;
+  position: absolute;
   bottom: 0;
   width: 100%;
   text-align: center;

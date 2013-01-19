@@ -19,6 +19,15 @@ define([
   App.addInitializer(function(options){
     var headerView = new HeaderView();
     App.headerRegion.show(headerView);
+    var handleResize = _.debounce(function(){
+      $(document.body).height(window.innerHeight+$(window).scrollTop())
+    }, 200);
+    var handleScroll = _.debounce(function(){
+      $(document.body).height(window.innerHeight+$(window).scrollTop())
+    }, 40);
+    $(window).resize(handleResize);
+    $(window).scroll(handleScroll);
+    handleResize();
   });
 
   App.addInitializer(function(options){
