@@ -24,12 +24,12 @@ require([
   'app',
 
 ], function(App){
-  var isDev = window.location.href.indexOf('localhost') > -1;
+  var isDev = window.location.href.indexOf('localhost') > -1 || window.location.href.indexOf('192') > -1;
   var options = {
     oauthToken:'',
     username:'', 
     mode:isDev ? "DEV" : "PROD",
-    baseUrl:isDev ? "http://localhost:3000" : "http://www.leavekudos.com"
+    baseUrl:isDev ? window.location.origin : "http://www.leavekudos.com"
   };
 
   if(document.cookie.indexOf('fsq_token') > -1) { 
