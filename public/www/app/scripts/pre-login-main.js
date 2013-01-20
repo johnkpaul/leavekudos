@@ -29,7 +29,7 @@ require([
         oauthToken:'',
         username:'', 
         mode:isDev ? "DEV" : "PROD",
-        baseUrl:isDev ? "http://localhost:3000" : "http://www.leavekudos.com"
+        baseUrl:window.location.origin
       };
 
       if(document.cookie.indexOf('fsq_token') > -1) { 
