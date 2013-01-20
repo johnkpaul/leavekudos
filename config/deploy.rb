@@ -15,7 +15,6 @@ default_run_options[:pty] = true  # Must be set for the password prompt
 
 set :application, "leavekudos.com"
 set :repository,  "git@github.com:johnkpaul/leavekudos.git"
-#set :user, "papajuans"  # The server's user for deploys
 set :scm, :git
 set :use_sudo, false
 set :branch, "master"
