@@ -10,8 +10,11 @@ development:
   timeout: 5000
 
 staging:
-  adapter: sqlite3
-  database: db/staging.sqlite3
+  adapter: postgresql
+  encoding: unicode
+  database: leavekudos_staging
+  username: leavekudos_staging
+  password: le@vekud0sstaging
   pool: 5
   timeout: 5000
 
@@ -24,15 +27,11 @@ test:
   pool: 5
   timeout: 5000
 
-
-# These credentials are specific to webfaction
-# Heroku uses the DATABASE_URL environment variable,
-# not the ones define below.
 production:
   adapter: postgresql
   encoding: unicode
-  database: leavekudos_test
-  username: leavekudos_test
-  password: le@vekud0s
+  database: leavekudos_prod
+  username: leavekudos_prod
+  password: le@vekud0sprod
   pool: 5
   timeout: 5000
