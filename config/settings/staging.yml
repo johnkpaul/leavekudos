@@ -1,10 +1,10 @@
 foursquare_api:
-  id: KIBNN41SBHFXRPYRY1V4GSXYSA2RSVQTKKWKBPG5N3I1OVMM 
-  secret: FLP0ZNK1VQAJRPA320SVWM3S133OMQB1BNPXXWZO3A2XF5Q1
-  redirect_url: http://www.leavekudos.com/callback
+  id: CH12EX0CVKXIP3D4GFEBGSKEOWX4LERUMZRSHBUH0NRKYUMY 
+  secret: AZXWH21PYVZ5WSP1JJSN2NU5NI2NGHC5HPKKFKTITNWIAMUI
+  redirect_url: http://staging.leavekudos.com/callback
 
 tweeting:
-  enabled: true
+  enabled: false
 
 url_shortening:
-  enabled: true 
+  enabled: false 
