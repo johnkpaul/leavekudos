@@ -34,14 +34,11 @@ Run the tests before you commit, please.
 
 ### Staging
 
-    git push staging master
-    heroku run rake db:migrate --app leavekudos-staging
-
+    cap staging deploy
 
 ### Production
 
-    git push prod master
-    heroku run rake db:migrate --app leavekudos
+    cap prduction deploy
 
 ## API Documentation
 
