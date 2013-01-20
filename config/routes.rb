@@ -18,6 +18,7 @@ Leavekudos::Application.routes.draw do
   match "/venues" => "venues#index"
 
   match "/kudos/:kudo_id" => "kudos#show", :as => :kudos_detail
+  match "/status" => "status#show"
 
   # oauth endpoints
   match "/connect" => "oauth#register"
