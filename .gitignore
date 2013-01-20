@@ -13,6 +13,7 @@
 # Ignore all logfiles and tempfiles.
 /log/*.log
 /tmp
+/temp
 /.idea
 
 config/settings.local.yml
@@ -21,3 +22,8 @@ config/environments/*.local.yml
 
 # Ignore results.xml file
 /results.xml
+
+# Ignore node output
+public/www/.sass-cache
+public/www/npm-debug.log
+public/www/temp
