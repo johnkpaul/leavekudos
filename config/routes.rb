@@ -7,6 +7,7 @@ Leavekudos::Application.routes.draw do
 
     match "venue/:venue_id/employees" => "employees#show", :via => :get
     match "venue/:venue_id/kudos" => "kudos#by_venue", :via => :get
+    match "venue/:venue_id" => "venues#show", :as => :venues_detail
 
     match "push/checkin" => "push#checkin", :via => :post
 
@@ -16,7 +17,6 @@ Leavekudos::Application.routes.draw do
     resources :kudos
   end
 
-  match "/venues/:venue_id" => "venues#show", :as => :venues_detail
   match "/venues" => "venues#index"
 
   match "/kudos/:kudo_id" => "kudos#show", :as => :kudos_detail
