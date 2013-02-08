@@ -22,6 +22,11 @@ class FoursquareWrapper
     client.user_checkins
   end
 
+  def FoursquareWrapper.add_checkin_reply(token, checkin_id, opts)
+    client = create_authenticated_client token
+    client.add_checkin_reply(checkin_id, opts)
+  end
+
   private
 
   def FoursquareWrapper.create_client

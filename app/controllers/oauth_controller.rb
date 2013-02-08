@@ -21,6 +21,8 @@ class OauthController < ApplicationController
     logger.debug "Handling callback for #{params[:code]}"
     access_token = oauth2_client.auth_code.get_token(params[:code], 
                                                     :redirect_uri => Settings.foursquare_api.redirect_url)
+    #TODO Need to persist the token so we can use it
+    # for making requests on behalf of them (like replying to their checkins).
     cookies[:fsq_token] = access_token.token
     foursq_user = FoursquareWrapper.user(access_token.token,'self')
     User.find_or_create_by_foursquare_user_id!(foursq_user.user_id, foursquare_user_hash: foursq_user.to_hash)

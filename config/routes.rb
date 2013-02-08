@@ -10,6 +10,8 @@ Leavekudos::Application.routes.draw do
 
     match "push/checkin" => "push#checkin", :via => :post
 
+    match "reply" => "push#reply", :via => :get
+
     match "checkins" => "foursq_passthrough#checkins", :via => :get
     resources :kudos
   end
