@@ -1,17 +1,17 @@
-// Filename: router.js
 define([
-  'jquery',
   'underscore',
   'backbone',
   'views/KudosView',
   'views/CheckinCollectionView',
   'views/LeaveKudosView',
   'views/LastKudosView',
+  'views/VenueView',
   'collections/kudos/KudosCollection',
   'collections/CheckinCollection',
   'collections/EmployeeCollection',
-], function($, _, Backbone, KudosView, CheckinCollectonView, SelectEmployeeView, LastKudosView, KudosCollection, 
-                 CheckinCollection, EmployeeCollection) {
+  'models/venue'
+], function(_, Backbone, KudosView, CheckinCollectonView, SelectEmployeeView, LastKudosView, VenueView, KudosCollection, 
+                 CheckinCollection, EmployeeCollection, Venue) {
   
   var mainController = {
 
@@ -30,6 +30,13 @@ define([
       require("app").headerRegion.currentView.showBack();
     },
 
+    loadVenue:function(venueId){
+      var venue = new Venue({id:venueId});
+      venue.fetch().then(function(){
+        var venueView = new VenueView({model:venue});
+        require("app").mainRegion.show(venueView);
+      });
+    },
     loadCheckins:function(){
       var checkinCollection = new CheckinCollection();
       checkinCollection.fetch().then(function(){

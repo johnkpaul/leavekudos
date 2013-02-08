@@ -4,7 +4,11 @@ class VenuesController < ApplicationController
 
   def show
     @venue = FoursquareWrapper.venue(params[:venue_id])
-    @employees =  Employee.where(venue_id: params[:venue_id])
+    @employees =  Employee.includes(:kudos).find_all_by_venue_id(params[:venue_id])
+    render :json => {
+      :venue => @venue, 
+      :employees => @employees.as_json(:include => :kudos)
+    }
   end
 
   def index

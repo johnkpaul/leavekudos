@@ -1,0 +1,23 @@
+<h1><%= venue.name %></h1>
+<p class="address"><%= venue.location.address %>, <%= venue.location.city %>, <%= venue.location.state %></p>
+<h1>has these amazing people</h1>
+<table>
+    <tr>
+        <!--<th>What we think his or her name is</th>-->
+        <th>Person</th>
+        <th>Kudos Tally</th>
+        <th>Kudos Anecdotes</th>
+    </tr>
+    <% for (var i = 0, len = employees.length;i<len;i++){ var employee = employees[i]%>
+    <tr>
+        <!--<td><%= employee.name %></td> -->
+        <td><%= employee.description %></td>
+        <td><%= employee.kudos.length%></td>
+        <td>
+            <% for (var i = 0, len = employee.kudos.length;i<len;i++){ var kudo = employee.kudos[i] %>
+            <blockquote><%= kudo.anecdote %></blockquote>
+            <% } %>
+        </td>
+    </tr>
+    <% } %>
+</table>

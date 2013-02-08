@@ -10,7 +10,8 @@ define([
       controller: mainController,
       appRoutes: {
         "": "loadHome",
-        "checkins": "loadCheckins"
+        "checkins": "loadCheckins",
+        "venues/:venue_id": "loadVenue"
       }
     });
 
