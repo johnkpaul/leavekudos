@@ -1,17 +1,16 @@
 require 'foursquare_wrapper'
+require 'allow_cors'
 
 class FoursqPassthroughController < ApplicationController
 
-  after_filter :set_access_control_headers
+  #So we can use set_cors_headers()
+  include AllowCors
+
+  after_filter :set_cors_headers
 
   def checkins
     logger.debug "Fetching most recent checkins"
     render json: FoursquareWrapper.user_checkins(cookies[:fsq_token]).items
-  end
-
-  def set_access_control_headers 
-      headers['Access-Control-Allow-Origin'] = '*' 
-      headers['Access-Control-Request-Method'] = '*' 
   end
 
 end

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130107015147) do
+ActiveRecord::Schema.define(:version => 20130208014239) do
 
   create_table "employees", :force => true do |t|
     t.string "venue_id"
@@ -48,6 +48,7 @@ ActiveRecord::Schema.define(:version => 20130107015147) do
     t.text     "foursquare_user_hash"
     t.datetime "created_at",                            :null => false
     t.datetime "updated_at",                            :null => false
+    t.string   "foursquare_token"
   end
 
 end

@@ -1,4 +1,4 @@
-# This is the mixin
+# Mixin that sets wildcard CORS headers
 module AllowCors
   def set_cors_headers
       headers['Access-Control-Allow-Origin'] = '*' 

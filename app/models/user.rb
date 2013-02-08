@@ -4,7 +4,7 @@ class User < ActiveRecord::Base
   # :lockable, :timeoutable and :omniauthable
 
   # Setup accessible (or protected) attributes for your model
-  attr_accessible :foursquare_user_id, :foursquare_user_hash
+  attr_accessible :foursquare_user_id, :foursquare_user_hash, :foursquare_token
   # attr_accessible :title, :body
   serialize :fourquare_user_hash, Hash
 end
